@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 STATIC_URL = "static/"
 MEDIA_URL = "media/"
 
-if env("DEVIL", False):
+if env.bool("DEVIL", False):
     STATIC_ROOT = os.path.join(BASE_DIR, "public", "static")
     MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 else:
