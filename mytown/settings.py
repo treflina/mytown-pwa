@@ -22,7 +22,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", False)
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 STATIC_URL = "static/"
 MEDIA_URL = "media/"
 
-if get_secret("DEVIL"):
+if env("DEVIL", False):
     STATIC_ROOT = os.path.join(BASE_DIR, "public", "static")
     MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 else:
