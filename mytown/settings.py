@@ -17,7 +17,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ftup#pqk6jt12#spcb4ne6xcv#^89_b1okv3sbsu-b#1%dna@@"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", False)
@@ -74,7 +74,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "mytown.wsgi.application"
 
 
-
 if DEBUG:
     DATABASES = {
         "default": {
@@ -87,10 +86,10 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": get_secret("DB_NAME"),
-            "USER": get_secret("DB_USER"),
-            "PASSWORD": get_secret("DB_PASSWORD"),
-            "HOST": get_secret("DB_HOST"),
+            "NAME": env("DB_NAME"),
+            "USER": env("DB_USER"),
+            "PASSWORD": env("DB_PASSWORD"),
+            "HOST": env("DB_HOST"),
             "PORT": "",
         }
     }
@@ -152,8 +151,5 @@ else:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-    "http://localhost:8080",
-    "http://127.0.0.1:8000",
-]
+CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS")
+ALLOWED_HOSTS=env("ALLOWED_HOSTS")
