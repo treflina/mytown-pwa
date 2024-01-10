@@ -11,6 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap&family=Fjalla+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+        <script type="text/javascript">
+        // Initialize the service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("{% url 'serviceworker' %}", {
+              scope: '.'
+            }).then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
 </head>
 <body>
     <header class="header">
@@ -26,6 +38,7 @@
     <footer class="footer">
         <p>ISĆ &#169; {% now "Y" %}</p>
     </footer>
+    {% comment %} <script src="{% static 'js/app.js' %}" {% endcomment %}
     <script src="{% static 'js/script.js'%}"></script>
 </body>
 </html>
