@@ -1,0 +1,56 @@
+@use 'abstracts'as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fff;
+    font-family: $main-font;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    overscroll-behavior-y: contain;
+}
+
+main {
+    flex: 1 0 auto;
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 1rem;
+
+}
+
+.wrapper-wide {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    gap: 20px;
+}
+
+@media(min-width:992px) {
+    .wrapper {
+        padding: 1rem 2rem;
+    }
+    }

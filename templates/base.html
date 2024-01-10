@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eTurawa {% block title %} {% endblock %} </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap&family=Fjalla+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <a href="/" class="header__logo">
+                <img class="header__logo-img" src="{%static 'img/logot.png'%}" alt="Powrót na stronę główną" style="">
+            </a>
+            <h1 class="header__txt"><span class="main-color-txt">e</span>Turawa Aplikacja&nbsp;Mieszkańca</h1>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer class="footer">
+        <p>ISĆ &#169; {% now "Y" %}</p>
+    </footer>
+    <script src="{% static 'js/script.js'%}"></script>
+</body>
+</html>

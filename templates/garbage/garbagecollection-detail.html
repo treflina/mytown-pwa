@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class=" wrapper-wide schedule padding-sm">
+        <div class="schedule__header">
+            <a class="link-back" href="{% url 'garbage:regions' %}"><svg class="custom-icon-no-mr" aria-hidden="true"
+            focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+            </use>
+        </svg>Lista rejonów</a>
+            <h2 class="heading-primary">Najbliższe terminy wywozu odpadów:</h2>
+
+            <div class="">
+                <div href class="schedule__description">
+                    <svg class="custom-icon icon-black-color" aria-hidden="true" focusable="false">
+                        <use href="{% static 'img/svg/sprite.svg' %}#{{object.number}}">
+                        </use>
+                    </svg>
+                    <p class="schedule__description-region">
+                        <span class="sr-only">{{object.number}}</span>{{object.name}}
+                    </p>
+                </div>
+            </div>
+
+            <form action="" style="margin-left: auto;"">
+                <label class=" Toggle" for="toggle">
+                Włącz powiadomienia
+                <input type="checkbox" name="toggle" id="toggle" class="Toggle__input" />
+                <span class="Toggle__display" hidden>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="Toggle__icon Toggle__icon--checkmark"
+                      width="18"
+                      height="14"
+                      viewBox="0 0 18 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.08471 10.6237L2.29164 6.83059L1 8.11313L6.08471 13.1978L17 2.28255L15.7175 1L6.08471 10.6237Z"
+                        fill="currentcolor"
+                        stroke="currentcolor"/>
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="Toggle__icon Toggle__icon--cross"
+                      width="13"
+                      height="13"
+                      viewBox="0 0 13 13"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.167 0L6.5 4.667L1.833 0L0 1.833L4.667 6.5L0 11.167L1.833 13L6.5 8.333L11.167 13L13 11.167L8.333 6.5L13 1.833L11.167 0Z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                </label>
+            </form>
+        </div>
+        <div class="schedule__boxes">
+            {% for col_type, col_type_objects in nearest_collection_types.items %}
+            {% if col_type_objects|length > 0 %}
+            <div class="schedule__box">
+                <div class="schedule__box-iconbox">
+                    <svg class="custom-icon schedule__box-icon" aria-hidden="true" focusable="false"
+                        style="fill:{{col_type.color}};">
+                        {% if 'wielkogabarytowe' in col_type.name %}
+                        <use href="{% static 'img/svg/sprite.svg' %}#dimensions"></use>
+                        {% else %}
+                        <use href="{% static 'img/svg/sprite.svg' %}#trash"></use>
+                        {% endif %}
+                    </svg>
+                </div>
+                <div class="schedule__box-text">
+                    <p class="schedule__box-heading">{{col_type.name}}</p>
+                    {% for col in col_type_objects %}
+                    {% with col.get_days_count as days %}
+                    <p>{{col.date}} ({{col.date|date:'l'|lower}})
+                        {%if days == 0%}<span class="main-color-txt bold">Dzisiaj</span> {%elif days == 1 %}
+                        <span class="main-color-txt bold">Jutro</span>{%else%}za
+                        <span class="main-color-txt bold">{{days}}</span> dni{%endif%}
+                    </p>
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {%endfor%}
+            <a href="{{ object.schedule.url }}" class="home__boxes-box homebox linkbox bluebox" style="margin-top:2rem;">
+                <svg class="custom-icon icon-secondary-color" aria-hidden="true" focusable="false">
+                    <use href="{% static 'img/svg/sprite.svg' %}#download"></use>
+                </svg><p>Pobierz harmonogram PDF</p></a>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

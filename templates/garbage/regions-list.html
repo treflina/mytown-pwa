@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="padding-sm">
+    <div class="regions wrapper contentbox flex-wrap">
+        <h2 class="heading-primary">Wybierz swój rejon:</h2>
+        <div class="regions__boxes padding-sm">
+            {% for region in regions %}
+            <a href="{% url 'garbage:region-details' region.id %}" class="regions__boxes-box regionbox linkbox">
+                <svg class="custom-icon icon-secondary-color">
+                    <use href="{% static 'img/svg/sprite.svg' %}#{{region.number}}">
+                    </use>
+                </svg>
+                <p class="semi-bold"><span class="sr-only">{{object.number}}</span>{{region.name}}</p>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+</main>
+{% endblock %}

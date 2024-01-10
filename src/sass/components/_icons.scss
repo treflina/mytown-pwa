@@ -1,0 +1,21 @@
+@use 'abstracts'as *;
+
+.custom-icon-no-mr {
+    width: 28px;
+    height: 28px;
+    fill: $main-color;
+}
+
+.custom-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+.icon-main-color {
+    fill: $main-color;
+}
+
+.icon-secondary-color {
+    fill: rgba($secondary-color, .85);
+}

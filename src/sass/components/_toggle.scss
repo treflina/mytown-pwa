@@ -1,0 +1,120 @@
+.Toggle {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 1ch;
+}
+
+.Toggle__display {
+    --offset: 0.25em;
+    --diameter: 1.8em;
+
+    display: inline-flex;
+    /* 1 */
+    align-items: center;
+    /* 1 */
+    justify-content: space-around;
+    /* 1 */
+
+    width: calc(var(--diameter) * 2 + var(--offset) * 2);
+    /* 2 */
+    height: calc(var(--diameter) + var(--offset) * 2);
+    /* 2 */
+    box-sizing: content-box;
+    /* 2 */
+
+    border: 0.1em solid rgb(0 0 0 / 0.2);
+    /* 3 */
+
+    position: relative;
+    /* 4 */
+    border-radius: 100vw;
+    /* 5 */
+    background-color: #fbe4e2;
+    /* 6 */
+
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.Toggle__display::before {
+    content: '';
+    width: var(--diameter);
+    height: var(--diameter);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 0.1 solid rgb(0 0 0 / 0.2);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: var(--offset);
+    transform: translate(0, -50%);
+    background-color: #fff;
+    transition: inherit;
+}
+
+
+.Toggle__input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Toggle__input:focus+.Toggle__display {
+    outline: 1px dotted #212121;
+    outline: 1px auto -webkit-focus-ring-color;
+}
+
+.Toggle__input:focus:not(:focus-visible)+.Toggle__display {
+    outline: 0;
+}
+
+.Toggle__input:checked+.Toggle__display {
+    background-color: #e3f5eb;
+}
+
+.Toggle__input:checked+.Toggle__display::before {
+    transform: translate(100%, -50%);
+}
+
+.Toggle__input:disabled+.Toggle__display {
+    opacity: 0.6;
+    filter: grayscale(40%);
+    cursor: not-allowed;
+}
+
+[dir='rtl'] .Toggle__display::before {
+    left: auto;
+    right: var(--offset);
+}
+
+[dir='rtl'] .Toggle__input:checked+.Toggle__display::before {
+    transform: translate(-100%, -50%);
+}
+
+.Toggle__icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    color: inherit;
+    fill: currentcolor;
+    vertical-align: middle;
+}
+
+.Toggle__icon--cross {
+    color: #e74c3c;
+    font-size: 85%;
+}
+
+.Toggle__icon--checkmark {
+    color: #1fb978;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .Toggle__display {
+        transition-duration: 0ms;
+    }
+}

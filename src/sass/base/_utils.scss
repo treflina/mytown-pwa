@@ -1,0 +1,54 @@
+@use 'abstracts'as *;
+
+.sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.main-color-txt {
+    color: $main-color;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.semi-bold {
+    font-weight: 500;
+}
+
+.padding-sm {
+    padding: 10px;
+}
+
+.margin-sm {
+    margin: 10px;
+}
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.margin-auto-top-sm {
+    margin: 2rem auto 0;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+@media(min-width:992px) {
+
+    .pad-sides {
+        padding: 0 5rem 0 3rem;
+    }
+
+    .margin-auto-top-sm {
+        margin: 0 auto;
+    }}
