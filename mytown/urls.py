@@ -24,6 +24,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("garbage.urls")),
-    path('sw.js', (TemplateView.as_view(template_name="sw.js",
-    content_type='application/javascript', )), name='serviceworker'),
+    # path('sw.js', (TemplateView.as_view(template_name="sw.js",
+    # content_type='application/javascript', )), name='serviceworker'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
