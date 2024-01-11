@@ -38,3 +38,5 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+fixtures.py
+django.log
