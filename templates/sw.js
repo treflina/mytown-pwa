@@ -1,36 +1,26 @@
-// {% load static %}
-self.addEventListener('install', e => {
-    const cacheProm = caches.open('cache-1')
-        .then(cache => {
-            return cache.addAll([
-                '/',
-                '/regions',
-                '{% static "img/tur4.jpg" %}',
-                '{% static "img/svg/sprite.svg" %}',
-                '{% static "css/styles.min.css" %}',
-                '{% static "img/logot.png" %}',
-                '{% static "js/script.js" %}'
-                // '{% static "js/app.js"%}',
-            ])
-        }
-    )
+self.addEventListener("push", function (event) {
+    let payload = event.data
+            ? event.data.text()
+            : { head: "No Content", body: "No Content", icon: "" },
+        data = JSON.parse(payload),
+        head = data.head,
+        body = data.body,
+        icon = data.icon;
+    url = data.url ? data.url : self.location.origin;
 
-e.waitUntil(cacheProm);
+    event.waitUntil(
+        self.registration.showNotification(head, {
+            body: body,
+            icon: icon,
+            data: { url: url },
+        })
+    );
 });
 
-self.addEventListener('fetch', e => {
-    console.log(e.request);
-
-    //   const requestUrl = new URL(e.request.url);
-    //   if (requestUrl.origin === location.origin) {
-    //       if (requestUrl.pathname === "/") {
-    //           e.respondWith(caches.match("/"));
-    //           console.log("matched")
-    //           return;
-    //       }
-    //   }
-
-    e.respondWith(caches.match(e.request).then(function (response) {
-        return response ;
-    }))
-})
+self.addEventListener("notificationclick", function (event) {
+    event.waitUntil(
+        event.preventDefault(),
+        event.notification.close(),
+        self.clients.openWindow(event.notification.data.url)
+    );
+});
