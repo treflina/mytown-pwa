@@ -30,11 +30,11 @@
     "type": "image/png"
     }
     ],
-  "start_url": "./",
+  "start_url": "/",
   "background_color": "#3498db",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": ".",
+
   "theme_color": "#3498db"
 
 }
