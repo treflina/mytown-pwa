@@ -30,8 +30,8 @@
             data-group="{{ webpush.group }}" {% endif %} data-url="{% url 'notifications:save_webpush_info'%}">
                 <span class="btn-text">Włącz powiadomienia</span>
                 <span class="Toggle__display" hidden>
-                    <svg class="Toggle__icon Toggle__icon--checkmark"><use href="{% static '/img/svg/sprite.svg' %}#checkmark"></use></svg>
-                    <svg class="Toggle__icon Toggle__icon--cross"><use href="{% static '/img/svg/sprite.svg' %}#cross"></use></svg>
+                    <svg class="Toggle__icon Toggle__icon--checkmark"><use href="{% static 'img/svg/sprite.svg' %}#checkmark"></use></svg>
+                    <svg class="Toggle__icon Toggle__icon--cross"><use href="{% static 'img/svg/sprite.svg' %}#cross"></use></svg>
                 </span>
             </button>
             {%endif%}
