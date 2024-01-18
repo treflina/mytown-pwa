@@ -5,28 +5,22 @@ let isPushEnabled = false,
     subBtn,
     btnText;
 
-
 window.addEventListener("load", function () {
     subBtn = document.getElementById("webpush-subscribe-btn");
     btnText = document.querySelector(".btn-text");
 
-    subBtn?.addEventListener("click", function () {
-        subBtn.disabled = true;
-        if (isPushEnabled) {
-            return unsubscribe(registration);
-        }
-        return subscribe(registration);
-    });
-
     // Do everything if the Browser Supports Service Worker
     if ("serviceWorker" in navigator) {
         const serviceWorker = document.querySelector('meta[name="sw"]').content;
-        navigator.serviceWorker.register(serviceWorker).then(function (reg) {
-            registration = reg;
-            if (subBtn !== null) {
-                initialiseState(reg);
-            }
-        });
+        navigator.serviceWorker
+            .register(serviceWorker)
+            .then(function (reg) {
+                registration = reg;
+                if (subBtn !== null) {
+                    initialiseState(reg);
+                }
+            })
+            .catch(console.log);
     }
     // If service worker not supported, show warning to the message box
     else {
@@ -82,6 +76,14 @@ window.addEventListener("load", function () {
                     }
                 });
             }
+        });
+
+        subBtn?.addEventListener("click", function () {
+            subBtn.disabled = true;
+            if (isPushEnabled) {
+                return unsubscribe(registration);
+            }
+            return subscribe(registration);
         });
     }
 });
@@ -215,7 +217,7 @@ function postSubscribeObj(statusType, subscription, callback) {
     const headers = new Headers();
     const csrftoken = getCookie("csrftoken");
     headers.append("X-CSRFToken", csrftoken);
-    headers.append("Content-Type", "application/json")
+    headers.append("Content-Type", "application/json");
     fetch(subBtn.dataset.url, {
         method: "post",
         mode: "same-origin",
@@ -223,5 +225,3 @@ function postSubscribeObj(statusType, subscription, callback) {
         body: JSON.stringify(data),
     }).then(callback);
 }
-
-

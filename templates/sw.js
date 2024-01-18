@@ -14,7 +14,7 @@ self.addEventListener("push", function (event) {
         self.registration.showNotification(head, {
             body: body,
             icon: "{% static 'img/icos/android-chrome96x96.png' %}",
-            badge: "{% static 'img/icos/android-chrome96x96.png' %}"",
+            badge: "{% static 'img/icos/android-chrome96x96.png' %}",
             data: { url: url }
         })
     );
