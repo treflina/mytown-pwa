@@ -26,8 +26,6 @@ class Command(BaseCommand):
                 payload = {
                     "head": f"Jutro {col.date.strftime('%d-%m-%Y')} wywóz: {col.garbage_type.name}",
                     "body": body,
-                    "badge": "/static/img/trash.ico",
-                    "icon": "/static/img/icos/android-chrome96x96.png",
                     "url": f"/regions/{region.id}"
                 }
                 if Group.objects.filter(name=region.id):
