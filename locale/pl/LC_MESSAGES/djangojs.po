@@ -22,11 +22,11 @@ msgstr ""
 
 #: .\static\js\app.js:66
 msgid "Service workers are not supported in your browser."
-msgstr ""
+msgstr "Twoja przeglądarka nie wspiera otrzymywania powiadomień."
 
 #: .\static\js\app.js:77
 msgid "Showing notifications are not supported in your browser."
-msgstr "Twoja przeglądarka nie wspiera wysyłania powiadomień."
+msgstr "Twoja przeglądarka nie wspiera otrzymywania powiadomień."
 
 #: .\static\js\app.js:90
 msgid "Push notifications are blocked by your browser."
@@ -34,7 +34,7 @@ msgstr "Powiadomienia sę blokowane w ustawieniach Twojej przeglądarki."
 
 #: .\static\js\app.js:100
 msgid "Push notifications are not available in your browser."
-msgstr "Wysyłanie powiadomień nie jest możliwe w Twojej przeglądarce."
+msgstr "Otrzymywanie powiadomień nie jest możliwe w Twojej przeglądarce."
 
 #: .\static\js\app.js:157
 msgid "Successfully subscribed to push notifications."

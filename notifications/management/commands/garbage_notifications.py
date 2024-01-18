@@ -24,10 +24,10 @@ class Command(BaseCommand):
             for col in gar_col:
                 body = f"{region.name} (Rejon {region.number})"
                 payload = {
-                    "head": f"Jutro wywóz: {col.garbage_type.name}",
+                    "head": f"Jutro {col.date.strftime('%d-%m-%Y')} wywóz: {col.garbage_type.name}",
                     "body": body,
-                    "badge": "static/img/trash.ico",
-                    "icon": "static/img/icos/android-chrome96x96.png",
+                    "badge": "/static/img/trash.ico",
+                    "icon": "/static/img/icos/android-chrome96x96.png",
                     "url": f"/regions/{region.id}"
                 }
                 if Group.objects.filter(name=region.id):

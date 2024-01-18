@@ -5,7 +5,7 @@ let isPushEnabled = false,
     subBtn,
     btnText;
 
-    
+
 window.addEventListener("load", function () {
     subBtn = document.getElementById("webpush-subscribe-btn");
     btnText = document.querySelector(".btn-text");

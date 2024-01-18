@@ -5,14 +5,15 @@ self.addEventListener("push", function (event) {
         data = JSON.parse(payload),
         head = data.head,
         body = data.body,
-        icon = data.icon;
-        badge = data.badge;
+        icon = data.icon,
+        badge = data.badge,
     url = data.url ? data.url : self.location.origin;
 
     event.waitUntil(
         self.registration.showNotification(head, {
             body: body,
             icon: icon,
+            badge: badge,
             data: { url: url },
         })
     );

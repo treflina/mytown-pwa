@@ -36,7 +36,7 @@
             </button>
             {%endif%}
             <div class="webpush-msgbox">
-            <div id="webpush-message" class="webpush-message" hidden style=""></div>
+            <div id="webpush-message" class="webpush-message" hidden></div>
                 </div>
         </div>
         <div class="schedule__boxes">
@@ -45,7 +45,7 @@
             <div class="schedule__box">
                 <div class="schedule__box-iconbox">
                     <svg class="custom-icon schedule__box-icon" aria-hidden="true" focusable="false"
-                        style="fill:{{col_type.color}};">
+                        style='fill: {{col_type.color}};'>
                         {% if 'wielkogabarytowe' in col_type.name %}
                         <use href="{% static 'img/svg/sprite.svg' %}#dimensions"></use>
                         {% else %}
