@@ -14,9 +14,8 @@ self.addEventListener("push", function (event) {
     event.waitUntil(
         self.registration.showNotification(head, {
             body: body,
-            icon: 'https://i.imgur.com/MZM3K5w.png',
+            icon: '',
             badge: '{% static "img/trash.ico" %}',
-            image: 'https://i.imgur.com/MZM3K5w.png',
             data: { url: url }
         })
     );
