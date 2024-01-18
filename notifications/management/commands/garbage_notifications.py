@@ -22,8 +22,14 @@ class Command(BaseCommand):
             gar_col = GarbageCollection.objects.filter(region=region, date=tomorrow)
 
             for col in gar_col:
-                body = f"{col.garbage_type.name} & {region.id}"
-                payload = {"head": "Jutro wywóz:", "body": body}
+                body = f"{region.name} (Rejon {region.number})"
+                payload = {
+                    "head": f"Jutro wywóz: {col.garbage_type.name}",
+                    "body": body,
+                    "badge": "static/img/trash.ico",
+                    "icon": "static/img/icos/android-chrome96x96.png",
+                    "url": f"/regions/{region.id}"
+                }
                 if Group.objects.filter(name=region.id):
                     send_group_notification(
                         group_name=region.id, payload=payload, ttl=1000

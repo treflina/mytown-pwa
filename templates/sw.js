@@ -6,6 +6,7 @@ self.addEventListener("push", function (event) {
         head = data.head,
         body = data.body,
         icon = data.icon;
+        badge = data.badge;
     url = data.url ? data.url : self.location.origin;
 
     event.waitUntil(

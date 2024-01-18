@@ -310,6 +310,7 @@ button.Toggle {
   width: 28px;
   height: 28px;
   fill: #4e4ed4;
+  flex-shrink: 0;
 }
 
 .custom-icon {
@@ -335,16 +336,18 @@ button.Toggle {
   background-color: #efefef;
 }
 .header__logo {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+.header__logo-img {
   width: 70px;
   height: 70px;
   flex-shrink: 0;
   margin: 10px;
   border-radius: 50%;
   box-shadow: 0px 0px 6px black;
-}
-.header__logo-img {
-  width: 100%;
-  height: 100%;
 }
 .header__txt {
   font-family: "Fjalla One", sans-serif;
