@@ -1,4 +1,3 @@
-{% load static %}
 self.addEventListener("push", function (event) {
     let payload = event.data
             ? event.data.text()
@@ -6,15 +5,14 @@ self.addEventListener("push", function (event) {
         data = JSON.parse(payload),
         head = data.head,
         body = data.body,
-        {% comment %} icon = data.icon, {% endcomment %}
         badge = data.badge,
     url = data.url ? data.url : self.location.origin;
 
     event.waitUntil(
         self.registration.showNotification(head, {
             body: body,
-            icon: "{% static 'img/icos/android-chrome96x96.png' %}",
-            badge: "{% static 'img/icos/android-chrome96x96.png' %}",
+            icon: "static/img/icos/android-chrome-96x96.png",
+            badge: "static/img/icos/android-chrome-96x96.png",
             data: { url: url }
         })
     );
