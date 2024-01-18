@@ -9,13 +9,12 @@ self.addEventListener("push", function (event) {
         {% comment %} icon = data.icon, {% endcomment %}
         badge = data.badge,
     url = data.url ? data.url : self.location.origin;
-    console.log(`${"{% static 'img/icos/android-chrome96x96.png' %}"}`)
 
     event.waitUntil(
         self.registration.showNotification(head, {
             body: body,
-            icon: '',
-            badge: '{% static "img/trash.ico" %}',
+            icon: "{% static 'img/icos/android-chrome96x96.png' %}",
+            badge: "{% static 'img/icos/android-chrome96x96.png' %}"",
             data: { url: url }
         })
     );
