@@ -2,6 +2,7 @@
 
 .home {
     display: flex;
+    height: 100%;
 
     &__image {
         display: none;
@@ -21,10 +22,13 @@
     grid-template-columns: repeat(2, minmax(140px, auto));
     width: 600px;
     padding: 10px;
+    // margin: 2rem 0;
     gap: 20px;
+    align-content: space-evenly;
 
     &-box {
         margin: 0;
+        font-size: 1.7rem;
         z-index: 1;
     }
 
@@ -35,6 +39,7 @@
 
     .home {
         justify-content: space-between;
+        align-items: center;
         height: calc(100vh - 13.5rem);
 
 

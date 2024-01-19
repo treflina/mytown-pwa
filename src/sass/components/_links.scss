@@ -58,7 +58,7 @@
 }
 
 .whitebox {
-    background-color: rgba(255, 255, 255, .9);
+    background-color: rgba(255, 255, 255, .84);
     color: black;
 }
 
@@ -74,7 +74,7 @@
 
     &:hover,
     &:active {
-        scale: 1.04;
+        scale: 1.02;
     }
 
     &:hover>.icon-secondary-color,
@@ -86,10 +86,9 @@
 
 .homebox {
     position: relative;
-    flex-basis: 150px;
     height: 140px;
-    flex-shrink: 1;
     border-radius: 15px;
+    border: 2px solid $main-color;
     transition: fill .6s,
         scale ease-in-out .4s;
 
@@ -100,12 +99,23 @@
 
     &:hover,
     &:active {
-
-        scale: 1.04;
+        scale: 1.03;
     }
 
     &:hover>.icon-secondary-home,
     &:active>.icon-secondary-home {
         fill: rgba($secondary-color, 1);
+    }
+}
+
+@media(min-width:992px) {
+    .home {
+        .homebox {
+            border: 1px solid $main-color;
+        }
+
+        .whitebox {
+            background-color: rgb(240, 240, 245);
+        }
     }
 }
