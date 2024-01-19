@@ -1,6 +1,8 @@
 @use 'abstracts'as *;
 
 .home {
+    display: flex;
+
     &__image {
         display: none;
     }
@@ -15,11 +17,14 @@
 }
 
 .home__boxes {
-    @include flexcontent-container;
-    width: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, auto));
+    width: 600px;
     padding: 10px;
+    gap: 20px;
 
     &-box {
+        margin: 0;
         z-index: 1;
     }
 
@@ -32,8 +37,11 @@
         justify-content: space-between;
         height: calc(100vh - 13.5rem);
 
+
         &__boxes {
-            padding: 0 5rem 0 3rem;
+            // padding: 0 5rem 0 3rem;
+            padding: 3rem 2rem;
+            align-content: start;
         }
 
         &__bgcimg {

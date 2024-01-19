@@ -243,7 +243,13 @@ button.Toggle {
   margin-left: -15px;
   color: #4e4ed4;
   font-weight: 600;
-  text-decoration: none;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+  transform: text-decoration-color 0.3s;
+}
+.link-back:hover {
+  -webkit-text-decoration-color: inherit;
+          text-decoration-color: inherit;
 }
 
 .contentbox {
@@ -251,6 +257,19 @@ button.Toggle {
   background-color: rgba(229, 139, 50, 0.8);
   border-radius: 15px;
   box-shadow: 0px 0px 4px black;
+}
+
+.downloadlink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: scale ease-in-out 0.3s;
+}
+.downloadlink:hover {
+  scale: 1.04;
+}
+.downloadlink:focus, .downloadlink:active {
+  outline: 3px solid rgb(229, 139, 50);
 }
 
 .linkbox {
@@ -272,7 +291,7 @@ button.Toggle {
 }
 
 .whitebox {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
   color: black;
 }
 
@@ -280,29 +299,33 @@ button.Toggle {
   justify-content: flex-start;
   background-color: white;
   color: black;
-  transition: scale 0.4s, fill 0.6s;
+  transition: scale ease-in-out 0.4s, fill 0.6s;
 }
 .regionbox:focus {
-  outline: 2px solid #4e4ed4;
+  outline: 3px solid #4e4ed4;
 }
 .regionbox:hover, .regionbox:active {
-  scale: 0.97;
+  scale: 1.04;
 }
-.regionbox:hover > .icon-secondary-color, .regionbox:active > .icon-secondary-color {
+.regionbox:hover > .icon-secondary-color, .regionbox:active > .icon-secondary-color, .regionbox:focus > .icon-secondary-color {
   fill: #4e4ed4;
 }
 
 .homebox {
-  justify-content: center;
-  transition: scale 0.4s, fill 0.6s;
+  position: relative;
+  flex-basis: 150px;
+  height: 140px;
+  flex-shrink: 1;
+  border-radius: 15px;
+  transition: fill 0.6s, scale ease-in-out 0.4s;
 }
 .homebox:focus {
-  outline: 2px solid rgb(229, 139, 50);
+  outline: 3px solid rgb(229, 139, 50);
 }
 .homebox:hover, .homebox:active {
-  scale: 0.97;
+  scale: 1.04;
 }
-.homebox:hover > .icon-secondary-color, .homebox:active > .icon-secondary-color {
+.homebox:hover > .icon-secondary-home, .homebox:active > .icon-secondary-home {
   fill: #e58b32;
 }
 
@@ -319,12 +342,29 @@ button.Toggle {
   margin-right: 10px;
 }
 
+.home-icon {
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  z-index: -1;
+}
+
 .icon-main-color {
   fill: #4e4ed4;
 }
 
 .icon-secondary-color {
-  fill: rgba(229, 139, 50, 0.85);
+  fill: rgb(229, 139, 50);
+  flex-shrink: 0;
+  transition: all 0.4s;
+}
+
+.icon-secondary-home {
+  fill: rgba(229, 139, 50, 0.7);
+  transition: fill 0.4s;
 }
 
 .header {
@@ -374,6 +414,9 @@ button.Toggle {
   text-align: center;
 }
 
+.home {
+  display: flex;
+}
 .home__image {
   display: none;
 }
@@ -390,16 +433,14 @@ button.Toggle {
 }
 
 .home__boxes {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, auto));
+  width: 600px;
   padding: 10px;
+  gap: 20px;
 }
 .home__boxes-box {
+  margin: 0;
   z-index: 1;
 }
 
@@ -409,7 +450,8 @@ button.Toggle {
     height: calc(100vh - 13.5rem);
   }
   .home__boxes {
-    padding: 0 5rem 0 3rem;
+    padding: 3rem 2rem;
+    align-content: start;
   }
   .home__bgcimg {
     display: none;
@@ -447,6 +489,9 @@ button.Toggle {
   justify-content: space-evenly;
 }
 
+.regions {
+  margin-top: 2rem;
+}
 .regions__boxes {
   position: relative;
   display: flex;

@@ -6,6 +6,7 @@
 }
 
 .regions {
+    margin-top: 2rem;
     &__boxes {
         @include flexcontent-container;
         width: 500px;

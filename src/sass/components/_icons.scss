@@ -13,10 +13,27 @@
     margin-right: 10px;
 }
 
+.home-icon {
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    z-index: -1;
+}
+
 .icon-main-color {
     fill: $main-color;
 }
 
 .icon-secondary-color {
-    fill: rgba($secondary-color, .85);
+    fill: $secondary-color;
+    flex-shrink: 0;
+    transition: all .4s;
+}
+
+.icon-secondary-home {
+    fill: rgba($secondary-color, .7);
+    transition: fill .4s;
 }

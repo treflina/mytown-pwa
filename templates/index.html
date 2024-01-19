@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <main>
-    <div class="home wrapper-wide">
+    <div class="home">
         <figure class=" home__image">
             <img src="{%static 'img/tur4.jpg' %}" alt="" class="home__image-img">
             <figcaption class="home__image-desc">Turawa Marszałki, Jezioro Duże (Fot. It's my fly)
@@ -10,33 +10,33 @@
         </figure>
         <div class="home__boxes mainpage margin-auto-top-sm">
             <a href="#" class="home__boxes-box  homebox linkbox whitebox">
-                <svg class="custom-icon icon-secondary-color" aria-hidden="true"
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
                     focusable="false">
                     <use href="{% static 'img/svg/sprite.svg' %}#megaphone">
                     </use></svg>
                 <p class="semi-bold">Aktualności i wydarzenia</p>
             </a>
             <a href="{% url 'garbage:regions' %}" class="home__boxes-box homebox linkbox whitebox">
-                    <svg class="custom-icon icon-secondary-color" aria-hidden="true" focusable="false">
+                    <svg class="home-icon icon-secondary-home" aria-hidden="true" focusable="false">
                         <use href="{% static 'img/svg/sprite.svg' %}#trash">
                         </use></svg><p class="semi-bold">Harmonogram wywozu odpadów</p></a>
             <a href="#" class="home__boxes-box homebox linkbox whitebox">
-                <svg class="custom-icon icon-secondary-color" aria-hidden="true"
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bag"></use>
                 </svg><p class="semi-bold">Sklepy i usługi</p>
             </a>
             <a href="#" class="home__boxes-box homebox linkbox whitebox">
-                <svg class="custom-icon icon-secondary-color" aria-hidden="true"
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#help"></use>
                 </svg><p class="semi-bold">Oddam, pomogę</p>
             </a>
             <a href="#" class="home__boxes-box homebox linkbox whitebox">
-                <svg class="custom-icon icon-secondary-color" aria-hidden="true"
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bus"></use>
                 </svg><p class="semi-bold">Gminna komunikacja autobusowa</p>
             </a>
             <a href="#" class="home__boxes-box homebox linkbox bluebox">
-                <svg class="custom-icon icon-secondary-color" aria-hidden="true"
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#info"></use>
                 </svg><p class="semi-bold">O projekcie / Kontakt</p>
             </a>
