@@ -3,6 +3,7 @@
 .home {
     display: flex;
     height: 100%;
+    align-items: center;
 
     &__image {
         display: none;
@@ -22,9 +23,11 @@
     display: grid;
     grid-template-columns: minmax(140px, auto);
     width: 60rem;
-    padding: 10px;
-    gap: 20px;
     align-content: space-evenly;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 20px;
     overflow: hidden;
 
 

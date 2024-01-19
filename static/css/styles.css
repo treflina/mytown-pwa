@@ -124,6 +124,10 @@ main {
   width: 1px;
 }
 
+.muted {
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .main-color-txt {
   color: #4e4ed4;
 }
@@ -510,6 +514,7 @@ button.Toggle {
 .home {
   display: flex;
   height: 100%;
+  align-items: center;
 }
 .home__image {
   display: none;
@@ -531,9 +536,11 @@ button.Toggle {
   display: grid;
   grid-template-columns: minmax(140px, auto);
   width: 60rem;
-  padding: 10px;
-  gap: 20px;
   align-content: space-evenly;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  gap: 20px;
   overflow: hidden;
 }
 .home__boxes-box {
