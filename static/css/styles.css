@@ -320,6 +320,7 @@ button.Toggle {
 }
 .homebox:focus {
   outline: 3px solid rgb(229, 139, 50);
+  border: 0px solid rgb(229, 139, 50);
 }
 .homebox:hover, .homebox:active {
   scale: 1.03;

@@ -162,8 +162,8 @@
     ],
   "start_url": "/",
   "scope":"/",
-  "background_color": "#edb02c",
+  "background_color": "rgb(240, 240, 245)",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#eeeeee"
+  "theme_color": "rgb(240, 240, 245)"
 }

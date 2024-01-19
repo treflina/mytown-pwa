@@ -95,6 +95,7 @@
 
     &:focus {
         outline: 3px solid $secondary-color;
+        border: 0px solid $secondary-color;
     }
 
     &:hover,
