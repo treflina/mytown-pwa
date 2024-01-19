@@ -35,7 +35,7 @@ main {
   width: 100%;
   max-width: 1050px;
   margin: 0 auto;
-  padding: 1rem;
+  padding-right: 0.5rem;
 }
 
 .wrapper-wide {
@@ -240,7 +240,7 @@ button.Toggle {
 .link-back {
   display: flex;
   align-items: center;
-  margin-left: -15px;
+  margin-left: -10px;
   color: #4e4ed4;
   font-weight: 600;
   -webkit-text-decoration-color: transparent;
@@ -291,7 +291,7 @@ button.Toggle {
 }
 
 .whitebox {
-  background-color: rgba(255, 255, 255, 0.84);
+  background-color: rgba(255, 255, 255, 0.88);
   color: black;
 }
 
@@ -313,20 +313,35 @@ button.Toggle {
 
 .homebox {
   position: relative;
-  height: 140px;
+  height: 14rem;
   border-radius: 15px;
-  border: 2px solid #4e4ed4;
   transition: fill 0.6s, scale ease-in-out 0.4s;
-}
-.homebox:focus {
-  outline: 3px solid rgb(229, 139, 50);
-  border: 0px solid rgb(229, 139, 50);
 }
 .homebox:hover, .homebox:active {
   scale: 1.03;
 }
 .homebox:hover > .icon-secondary-home, .homebox:active > .icon-secondary-home {
   fill: #e58b32;
+}
+
+.homebox-orange {
+  border: 3px solid rgb(229, 139, 50);
+}
+.homebox-orange:focus {
+  outline: 3px solid #4e4ed4;
+  border: 0px solid #4e4ed4;
+}
+
+.homebox-blue {
+  border: 2px solid #4e4ed4;
+}
+.homebox-blue:focus {
+  outline: 3px solid rgb(229, 139, 50);
+  border: 0px solid rgb(229, 139, 50);
+}
+
+.homebox-cta:focus {
+  outline: 3px solid rgb(229, 139, 50);
 }
 
 @media (min-width: 992px) {
@@ -379,7 +394,8 @@ button.Toggle {
   position: relative;
   display: flex;
   align-items: center;
-  height: 90px;
+  min-height: -moz-min-content;
+  min-height: min-content;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
   background-color: rgb(240, 240, 245);
 }
@@ -399,7 +415,7 @@ button.Toggle {
 }
 .header__txt {
   font-family: "Fjalla One", sans-serif;
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 0.5rem;
   font-size: 2.6rem;
   font-weight: 600;
 }
@@ -450,8 +466,8 @@ button.Toggle {
 
 .home__boxes {
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, auto));
-  width: 600px;
+  grid-template-columns: minmax(140px, auto);
+  width: 60rem;
   padding: 10px;
   gap: 20px;
   align-content: space-evenly;
@@ -462,11 +478,16 @@ button.Toggle {
   z-index: 1;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 21.25em) {
+  .home__boxes {
+    grid-template-columns: repeat(2, minmax(140px, auto));
+  }
+}
+@media (min-width: 62em) {
   .home {
     justify-content: space-between;
     align-items: center;
-    height: calc(100vh - 13.5rem);
+    height: calc(100vh - 15.5rem);
   }
   .home__boxes {
     padding: 3rem 2rem;

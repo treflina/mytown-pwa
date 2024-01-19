@@ -3,7 +3,7 @@
 .link-back {
     display: flex;
     align-items: center;
-    margin-left: -15px;
+    margin-left: -10px;
     color: $main-color;
     font-weight: 600;
     text-decoration-color: transparent;
@@ -58,7 +58,7 @@
 }
 
 .whitebox {
-    background-color: rgba(255, 255, 255, .84);
+    background-color: rgba(255, 255, 255, .88);
     color: black;
 }
 
@@ -86,17 +86,17 @@
 
 .homebox {
     position: relative;
-    height: 140px;
+    height: 14rem;
     border-radius: 15px;
-    border: 2px solid $main-color;
+
     transition: fill .6s,
         scale ease-in-out .4s;
 
 
-    &:focus {
-        outline: 3px solid $secondary-color;
-        border: 0px solid $secondary-color;
-    }
+    // &:focus {
+    //     outline: 3px solid $secondary-color;
+    //     border: 0px solid $secondary-color;
+    // }
 
     &:hover,
     &:active {
@@ -106,6 +106,30 @@
     &:hover>.icon-secondary-home,
     &:active>.icon-secondary-home {
         fill: rgba($secondary-color, 1);
+    }
+}
+
+.homebox-orange {
+    border: 3px solid $secondary-color;
+
+    &:focus {
+        outline: 3px solid $main-color;
+        border: 0px solid $main-color;
+    }
+}
+
+.homebox-blue {
+    border: 2px solid $main-color;
+
+    &:focus {
+        outline: 3px solid $secondary-color;
+        border: 0px solid $secondary-color;
+    }
+}
+
+.homebox-cta {
+    &:focus {
+        outline: 3px solid $secondary-color;
     }
 }
 

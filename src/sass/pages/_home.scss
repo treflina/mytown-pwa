@@ -19,8 +19,9 @@
 
 .home__boxes {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, auto));
-    width: 600px;
+    grid-template-columns: minmax(140px, auto);
+
+    width: 60rem;
     padding: 10px;
     // margin: 2rem 0;
     gap: 20px;
@@ -34,17 +35,20 @@
 
 }
 
+@media(min-width:21.25em) {
+    .home__boxes {
+        grid-template-columns: repeat(2, minmax(140px, auto));
+    }
+}
 
-@media(min-width:992px) {
 
+@media(min-width:62em) {
     .home {
         justify-content: space-between;
         align-items: center;
-        height: calc(100vh - 13.5rem);
-
+        height: calc(100vh - 15.5rem);
 
         &__boxes {
-            // padding: 0 5rem 0 3rem;
             padding: 3rem 2rem;
             align-content: start;
         }
