@@ -1,3 +1,64 @@
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slide-left {
+  animation-name: slideInLeft;
+}
+
+.slide-right {
+  animation-name: slideInRight;
+}
+
+.slide-up {
+  animation-name: slideInUp;
+}
+
+.slide-down {
+  animation-name: slideInDown;
+}
+
 *,
 *::before,
 *::after {
@@ -530,7 +591,7 @@ button.Toggle {
 }
 
 .regions {
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 .regions__boxes {
   position: relative;
