@@ -95,7 +95,8 @@ main {
   align-items: center;
   width: 100%;
   max-width: 1050px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-right: 0.5rem;
 }
 
@@ -591,7 +592,8 @@ button.Toggle {
 }
 
 .regions {
-  margin: 2rem 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 .regions__boxes {
   position: relative;
