@@ -1,41 +1,41 @@
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(-2000px);
+    transform: translateZ(-1500px) translateY(-1000px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(2000px);
+    transform: translateZ(-1500px) translateX(1000px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 }
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-2000px);
+    transform: translateZ(-1500px) translateX(-1000px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 }
 @keyframes slideInDown {
   from {
     opacity: 0;
-    transform: translateY(2000px);
+    transform: translateZ(-1500px) translateY(1000px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 .animated {
@@ -527,12 +527,14 @@ button.Toggle {
 }
 
 .home__boxes {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(140px, auto);
   width: 60rem;
   padding: 10px;
   gap: 20px;
   align-content: space-evenly;
+  overflow: hidden;
 }
 .home__boxes-box {
   margin: 0;

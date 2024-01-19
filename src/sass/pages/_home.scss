@@ -18,14 +18,15 @@
 }
 
 .home__boxes {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(140px, auto);
-
     width: 60rem;
     padding: 10px;
-    // margin: 2rem 0;
     gap: 20px;
     align-content: space-evenly;
+    overflow: hidden;
+
 
     &-box {
         margin: 0;
