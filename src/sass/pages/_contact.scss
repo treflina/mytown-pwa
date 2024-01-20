@@ -1,0 +1,84 @@
+@use 'abstracts'as *;
+
+.contact {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    gap: 30px;
+
+    &__landing {
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+            margin: 3rem 0;
+            font-size: 1.9rem;
+        }
+    }
+
+    &__about {
+        flex: 1 0 48%;
+
+        &-heading {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__message {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 48%;
+        padding: 1rem 2rem;
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, .6);
+        border-radius: 8px;
+        background-color: rgba($secondary-color, .8);
+
+        &-heading {
+            margin-bottom: 1rem;
+        }
+
+    }
+
+    &__form {
+        margin: 2rem 0 1rem;
+
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 10px;
+            margin: .5rem 0 1rem;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+
+        }
+
+        textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        input[type=submit] {
+            display: block;
+            margin-left: auto;
+            margin-top: 2rem;
+            padding: .75rem 2rem;
+            font-family: inherit;
+            font-size: inherit;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        &-descr {
+            font-size: 1.4rem;
+        }
+    }
+}

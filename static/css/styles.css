@@ -491,6 +491,9 @@ button.Toggle {
     justify-content: flex-start;
     box-shadow: none;
   }
+  .header__wrapper {
+    max-width: 1250px;
+  }
   .header__txt {
     font-size: 2.8rem;
   }
@@ -653,4 +656,74 @@ button.Toggle {
 }
 .schedule__box-heading {
   font-weight: 500;
+}
+
+.contact {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  gap: 30px;
+}
+.contact__landing {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contact__landing p {
+  margin: 3rem 0;
+  font-size: 1.9rem;
+}
+.contact__about {
+  flex: 1 0 48%;
+}
+.contact__about-heading {
+  margin-bottom: 2rem;
+}
+.contact__message {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 48%;
+  padding: 1rem 2rem;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  background-color: rgba(229, 139, 50, 0.8);
+}
+.contact__message-heading {
+  margin-bottom: 1rem;
+}
+.contact__form {
+  margin: 2rem 0 1rem;
+}
+.contact__form input[type=text],
+.contact__form input[type=email],
+.contact__form textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  margin: 0.5rem 0 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+.contact__form textarea {
+  resize: vertical;
+  height: 150px;
+}
+.contact__form input[type=submit] {
+  display: block;
+  margin-left: auto;
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.contact__form-descr {
+  font-size: 1.4rem;
 }

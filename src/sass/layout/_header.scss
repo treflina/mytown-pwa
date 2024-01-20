@@ -36,8 +36,14 @@
 
 @media(min-width:992px) {
     .header {
+
         justify-content: flex-start;
         box-shadow: none;
+
+        &__wrapper {
+            max-width: 1250px;
+        }
+
 
         &__txt {
             font-size: 2.8rem;

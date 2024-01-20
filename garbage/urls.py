@@ -14,7 +14,7 @@ router.register(r"garbagecollection", views.GarbageCollectionViewSet)
 app_name = "garbage"
 
 urlpatterns = [
-    path("", views.HomeView.as_view(), name="home"),
+    # path("", views.HomeView.as_view(), name="home"),
     path("regions/", views.RegionListView.as_view(), name="regions"),
     path("regions/<int:pk>/", views.RegionDetailView.as_view(), name="region-details"),
     path("api/", include(router.urls)),

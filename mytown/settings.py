@@ -35,11 +35,29 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.documents",
+    "wagtail.images",
+    "wagtail.search",
+    "wagtail.admin",
+    "wagtail",
+    "modelcluster",
+    "taggit",
+    # "django_recaptcha",
+    "django_recaptcha",
+    "wagtailcaptcha",
     "corsheaders",
     "rest_framework",
     "webpush",
     "django_extensions",
     "colorfield",
+    "core",
+    "contact",
     "garbage",
     "notifications",
 ]
@@ -54,6 +72,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = "mytown.urls"
@@ -161,6 +180,22 @@ WEBPUSH_SETTINGS = {
     "VAPID_PRIVATE_KEY": env("VAPID_PRIVATE_KEY"),
     "VAPID_ADMIN_EMAIL": env("ADMIN_EMAIL"),
 }
+
+WAGTAIL_SITE_NAME = "eTurawa"
+WAGTAILADMIN_BASE_URL = env("BASE_URL")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = env("EMAIL_HOST_USER")
+EMAIL_TO = env("EMAIL_HOST_USER")
+
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
+NOCAPTCHA = True
 
 LOGGING = {
     "version": 1,

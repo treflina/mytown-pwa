@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static wagtailcore_tags %}
+
+{% block content %}
+<main class="contact wrapper" style="max-width:1200px;">
+    <div class="contact__about">
+        <h2 class="contact__about-heading">O projekcie</h2>
+        {{ page.intro|richtext }}
+    </div>
+    <div class="contact__message">
+    <h2 class="contact__message-heading">Kontakt</h2>
+    {{ page.form_intro|richtext }}
+    <form action="{% pageurl page %}" method="POST" role="form" class="contact__form">
+        {% csrf_token %}
+        {% if form.subject.errors %}
+        <ol role="alertdialog">
+            {% for error in form.subject.errors %}
+            <li role="alert"><strong>{{ error|escape }}</strong></li>
+            {% endfor %}
+        </ol>
+        {% endif %}
+
+        {% for field in form %}
+        <div class="fieldWrapper {% if field.name == 'rodo'%} contact__form-descr {% endif %}"
+        aria-required={% if field.field.required %} "true"{% else %}"false"{% endif %}>
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+            {{ field.label_tag }}{% if field.field.required and field.name != "wagtailcaptcha" %}<span class="required">*</span>{% endif %}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input type="submit">
+    </form>
+    </div>
+</main>
+{% endblock %}

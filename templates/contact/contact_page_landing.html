@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static wagtailcore_tags %}
+
+{% block content %}
+
+    <main class="wrapper contact__landing">
+        <p>
+            {{ self.thank_you_text|richtext }}
+        </p>
+        <a class="link-back" href="/"><svg class="custom-icon-no-mr" aria-hidden="true"
+            focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+            </use>
+        </svg>Powrót na stronę główną</a>
+
+    </main>
+
+{% endblock %}

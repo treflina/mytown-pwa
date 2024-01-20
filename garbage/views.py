@@ -18,8 +18,8 @@ from garbage.serializers import (
 )
 
 
-class HomeView(TemplateView):
-    template_name = "index.html"
+# class HomeView(TemplateView):
+#     template_name = "index.html"
 
 
 class RegionListView(ListView):

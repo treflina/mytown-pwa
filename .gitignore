@@ -1,6 +1,9 @@
 .env
 mytest.py
 garbage/migrations/*
+core/migrations/*
+contact/migrations/*
+notifications/migrations/*
 media/*
 db.sqlite3
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static wagtailcore_tags %}
 {% block content %}
 <main>
     <div class="home">
@@ -35,7 +35,7 @@
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bus"></use>
                 </svg><p class="semi-bold muted">Gminna komunikacja autobusowa</p>
             </a>
-            <a href="#" class="home__boxes-box homebox homebox-cta linkbox bluebox animated slide-right">
+            <a href="{% slugurl 'kontakt' %}" class="home__boxes-box homebox homebox-cta linkbox bluebox animated slide-right">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#info"></use>
                 </svg><p class="semi-bold">O projekcie / Kontakt</p>
