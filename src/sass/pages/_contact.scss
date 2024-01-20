@@ -58,6 +58,11 @@
             border: none;
             box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 
+            &:focus,
+            &:active {
+                outline: 3px solid $main-color;
+            }
+
         }
 
         textarea {
@@ -72,13 +77,28 @@
             padding: .75rem 2rem;
             font-family: inherit;
             font-size: inherit;
-            border-radius: 8px;
+            border-radius: 15px;
             border: none;
+            background-color: $main-color;
+            color: white;
             cursor: pointer;
+            transition: scale ease-in-out .3s;
+
+            &:hover {
+                scale: 1.04;
+            }
+
+            &:focus,
+            &:active {
+                outline: 3px solid lime;
+            }
+
+
         }
 
         &-descr {
             font-size: 1.4rem;
         }
+
     }
 }

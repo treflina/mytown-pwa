@@ -709,6 +709,13 @@ button.Toggle {
   border: none;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
+.contact__form input[type=text]:focus, .contact__form input[type=text]:active,
+.contact__form input[type=email]:focus,
+.contact__form input[type=email]:active,
+.contact__form textarea:focus,
+.contact__form textarea:active {
+  outline: 3px solid #4e4ed4;
+}
 .contact__form textarea {
   resize: vertical;
   height: 150px;
@@ -720,9 +727,18 @@ button.Toggle {
   padding: 0.75rem 2rem;
   font-family: inherit;
   font-size: inherit;
-  border-radius: 8px;
+  border-radius: 15px;
   border: none;
+  background-color: #4e4ed4;
+  color: white;
   cursor: pointer;
+  transition: scale ease-in-out 0.3s;
+}
+.contact__form input[type=submit]:hover {
+  scale: 1.04;
+}
+.contact__form input[type=submit]:focus, .contact__form input[type=submit]:active {
+  outline: 3px solid lime;
 }
 .contact__form-descr {
   font-size: 1.4rem;
