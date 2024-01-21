@@ -34,7 +34,7 @@ class Command(BaseCommand):
                 payload = {
                     "head": f"Jutro {col.date.strftime('%d-%m-%Y')} wywóz: {col.garbage_type.name}",
                     "body": body,
-                    "url": f"/regions/{region.id}",
+                    "url": f"/odpady/regions/{region.id}",
                 }
                 if Group.objects.filter(name=region.id):
                     send_group_notification(
