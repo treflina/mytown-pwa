@@ -12,7 +12,7 @@ self.addEventListener("push", function (event) {
         self.registration.showNotification(head, {
             body: body,
             icon: "static/img/icos/android-chrome-96x96.png",
-            badge: "static/img/trash.png",
+            badge: "static/img/trash2.png",
             data: { url: url }
         })
     );
