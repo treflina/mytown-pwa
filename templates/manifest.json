@@ -3,162 +3,136 @@
   "name": "eTurawa",
   "description": "Aplikacja Mieszkańca",
   "icons": [
+   "icons": [
     {
-    "src": "/static/img/iconx/android-chrome-192x192.png",
-    "sizes": "192x192",
-    "type": "image/png"
-    },
-    {
-    "src": "/static/img/iconx/android-chrome-512x512.png",
-    "sizes": "512x512",
-    "type": "image/png"
-    },
-    {
-    "src": "/static/img/iconx/android-chrome-maskable-192x192.png",
-    "sizes": "192x192",
-    "type": "image/png",
-    "purpose": "maskable"
-    },
-    {
-    "src": "/static/img/iconx/android-chrome-maskable-512x512.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "maskable"
-    },
-    {
-    "src": "/static/img/icos/android-chrome-96x96.png",
-    "sizes": "96x96",
-    "type": "image/png"
-    },
-
-    {
-      "src": "static/img/igen/android/android-launchericon-512-512.png",
+      "src": "/static/img/igen/android/android-launchericon-512-512.png",
       "sizes": "512x512"
     },
     {
-      "src": "static/img/igen/android/android-launchericon-192-192.png",
+      "src": "/static/img/igen/android/android-launchericon-192-192.png",
       "sizes": "192x192"
     },
     {
-      "src": "static/img/igen/android/android-launchericon-144-144.png",
+      "src": "/static/img/igen/android/android-launchericon-144-144.png",
       "sizes": "144x144"
     },
     {
-      "src": "static/img/igen/android/android-launchericon-96-96.png",
+      "src": "/static/img/igen/android/android-launchericon-96-96.png",
       "sizes": "96x96"
     },
     {
-      "src": "static/img/igen/android/android-launchericon-72-72.png",
+      "src": "/static/img/igen/android/android-launchericon-72-72.png",
       "sizes": "72x72"
     },
     {
-      "src": "static/img/igen/android/android-launchericon-48-48.png",
+      "src": "/static/img/igen/android/android-launchericon-48-48.png",
       "sizes": "48x48"
     },
     {
-      "src": "static/img/igen/ios/16.png",
+      "src": "/static/img/igen/ios/16.png",
       "sizes": "16x16"
     },
     {
-      "src": "static/img/igen/ios/20.png",
+      "src": "/static/img/igen/ios/20.png",
       "sizes": "20x20"
     },
     {
-      "src": "static/img/igen/ios/29.png",
+      "src": "/static/img/igen/ios/29.png",
       "sizes": "29x29"
     },
     {
-      "src": "static/img/igen/ios/32.png",
+      "src": "/static/img/igen/ios/32.png",
       "sizes": "32x32"
     },
     {
-      "src": "static/img/igen/ios/40.png",
+      "src": "/static/img/igen/ios/40.png",
       "sizes": "40x40"
     },
     {
-      "src": "static/img/igen/ios/50.png",
+      "src": "/static/img/igen/ios/50.png",
       "sizes": "50x50"
     },
     {
-      "src": "static/img/igen/ios/57.png",
+      "src": "/static/img/igen/ios/57.png",
       "sizes": "57x57"
     },
     {
-      "src": "static/img/igen/ios/58.png",
+      "src": "/static/img/igen/ios/58.png",
       "sizes": "58x58"
     },
     {
-      "src": "static/img/igen/ios/60.png",
+      "src": "/static/img/igen/ios/60.png",
       "sizes": "60x60"
     },
     {
-      "src": "static/img/igen/ios/64.png",
+      "src": "/static/img/igen/ios/64.png",
       "sizes": "64x64"
     },
     {
-      "src": "static/img/igen/ios/72.png",
+      "src": "/static/img/igen/ios/72.png",
       "sizes": "72x72"
     },
     {
-      "src": "static/img/igen/ios/76.png",
+      "src": "/static/img/igen/ios/76.png",
       "sizes": "76x76"
     },
     {
-      "src": "static/img/igen/ios/80.png",
+      "src": "/static/img/igen/ios/80.png",
       "sizes": "80x80"
     },
     {
-      "src": "static/img/igen/ios/87.png",
+      "src": "/static/img/igen/ios/87.png",
       "sizes": "87x87"
     },
     {
-      "src": "static/img/igen/ios/100.png",
+      "src": "/static/img/igen/ios/100.png",
       "sizes": "100x100"
     },
     {
-      "src": "static/img/igen/ios/114.png",
+      "src": "/static/img/igen/ios/114.png",
       "sizes": "114x114"
     },
     {
-      "src": "static/img/igen/ios/120.png",
+      "src": "/static/img/igen/ios/120.png",
       "sizes": "120x120"
     },
     {
-      "src": "static/img/igen/ios/128.png",
+      "src": "/static/img/igen/ios/128.png",
       "sizes": "128x128"
     },
     {
-      "src": "static/img/igen/ios/144.png",
+      "src": "/static/img/igen/ios/144.png",
       "sizes": "144x144"
     },
     {
-      "src": "static/img/igen/ios/152.png",
+      "src": "/static/img/igen/ios/152.png",
       "sizes": "152x152"
     },
     {
-      "src": "static/img/igen/ios/167.png",
+      "src": "/static/img/igen/ios/167.png",
       "sizes": "167x167"
     },
     {
-      "src": "static/img/igen/ios/180.png",
+      "src": "/static/img/igen/ios/180.png",
       "sizes": "180x180"
     },
     {
-      "src": "static/img/igen/ios/192.png",
+      "src": "/static/img/igen/ios/192.png",
       "sizes": "192x192"
     },
     {
-      "src": "static/img/igen/ios/256.png",
+      "src": "/static/img/igen/ios/256.png",
       "sizes": "256x256"
     },
     {
-      "src": "static/img/igen/ios/512.png",
+      "src": "/static/img/igen/ios/512.png",
       "sizes": "512x512"
     },
     {
-      "src": "static/img/igen/ios/1024.png",
+      "src": "/static/img/igen/ios/1024.png",
       "sizes": "1024x1024"
     }
+  ]
     ],
   "start_url": "/",
   "scope":"/",
