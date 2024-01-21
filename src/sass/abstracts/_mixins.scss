@@ -1,3 +1,21 @@
+$media: (xsm: 25em, //400px
+    sm: 36em, //576px
+    md: 48em, //768px
+    l: 62em, //992px
+    xl: 75em, //1200px
+);
+
+@mixin media($breakpoint) {
+    @each $breakpoints,
+    $size in $media {
+        @if $breakpoint==$breakpoints {
+            @media screen and (min-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
 @mixin pseudocontent-basic {
     content: "";
     position: absolute;

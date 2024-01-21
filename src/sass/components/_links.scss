@@ -7,7 +7,7 @@
     color: $main-color;
     font-weight: 600;
     text-decoration-color: transparent;
-    transform: text-decoration-color .3s;
+    transition: text-decoration-color .3s;
 
     &:hover {
         text-decoration-color: inherit;

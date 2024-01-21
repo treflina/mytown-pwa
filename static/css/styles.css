@@ -311,7 +311,9 @@ button.Toggle {
   font-weight: 600;
   -webkit-text-decoration-color: transparent;
           text-decoration-color: transparent;
-  transform: text-decoration-color 0.3s;
+  transition: -webkit-text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s;
+  transition: text-decoration-color 0.3s, -webkit-text-decoration-color 0.3s;
 }
 .link-back:hover {
   -webkit-text-decoration-color: inherit;
@@ -486,7 +488,12 @@ button.Toggle {
   font-weight: 600;
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 36em) {
+  .show-xs {
+    display: none;
+  }
+}
+@media screen and (min-width: 62em) {
   .header {
     justify-content: flex-start;
     box-shadow: none;

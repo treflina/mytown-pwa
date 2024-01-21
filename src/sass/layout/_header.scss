@@ -34,7 +34,13 @@
     }
 }
 
-@media(min-width:992px) {
+@include media(sm) {
+    .show-xs {
+        display: none;
+    }
+}
+
+@include media(l) {
     .header {
 
         justify-content: flex-start;

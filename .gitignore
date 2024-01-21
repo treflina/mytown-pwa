@@ -43,3 +43,4 @@ wheels/
 *.egg
 fixtures.py
 django.log
+notifications.log
