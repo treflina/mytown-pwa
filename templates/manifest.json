@@ -3,7 +3,6 @@
   "name": "eTurawa",
   "description": "Aplikacja Mieszkańca",
   "icons": [
-   "icons": [
     {
       "src": "/static/img/igen/android/android-launchericon-512-512.png",
       "sizes": "512x512"
@@ -132,7 +131,6 @@
       "src": "/static/img/igen/ios/1024.png",
       "sizes": "1024x1024"
     }
-  ]
     ],
   "start_url": "/",
   "scope":"/",
