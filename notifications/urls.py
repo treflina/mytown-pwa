@@ -6,6 +6,6 @@ from notifications import views
 app_name = "notifications"
 
 urlpatterns = [
-    path("webpush/send", views.save_info, name="save_webpush_info"),
-    path("subscription-check", views.subscription_check, name="subscription-check"),
+    path("webpush/send/", views.save_info, name="save_webpush_info"),
+    path("subscription-check/", views.subscription_check, name="subscription-check"),
 ]

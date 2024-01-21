@@ -194,7 +194,7 @@ function checkSubscription(subscription, callback) {
     headers.append("X-CSRFToken", csrftoken);
     headers.append("Content-Type", "application/json");
 
-    fetch("/subscription-check", {
+    fetch("/powiadomienia/subscription-check/", {
         method: "post",
         mode: "same-origin",
         headers: headers,
