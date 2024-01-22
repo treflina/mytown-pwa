@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 13:41+0100\n"
+"POT-Creation-Date: 2024-01-22 13:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,38 +20,50 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: .\static\js\app.js:66
+#: .\static\js\app.js:28
 msgid "Service workers are not supported in your browser."
 msgstr "Twoja przeglądarka nie wspiera otrzymywania powiadomień."
 
-#: .\static\js\app.js:77
+#: .\static\js\app.js:39
 msgid "Showing notifications are not supported in your browser."
 msgstr "Twoja przeglądarka nie wspiera otrzymywania powiadomień."
 
-#: .\static\js\app.js:90
+#: .\static\js\app.js:52
 msgid "Push notifications are blocked by your browser."
 msgstr "Powiadomienia sę blokowane w ustawieniach Twojej przeglądarki."
 
-#: .\static\js\app.js:100
+#: .\static\js\app.js:62
 msgid "Push notifications are not available in your browser."
 msgstr "Otrzymywanie powiadomień nie jest możliwe w Twojej przeglądarce."
 
-#: .\static\js\app.js:157
+#: .\static\js\app.js:73 .\static\js\app.js:124
+msgid "Turn off notifications"
+msgstr "Wyłącz powiadomienia"
+
+#: .\static\js\app.js:131
 msgid "Successfully subscribed to push notifications."
 msgstr "Powiadomienia zostały włączone."
 
-#: .\static\js\app.js:166
+#: .\static\js\app.js:140
 msgid "Error while subscribing to push notifications."
 msgstr "Błąd podczas włączania funkcji otrzymywania powiadomień."
 
-#: .\static\js\app.js:183
+#: .\static\js\app.js:157
+msgid "Turn on notifications"
+msgstr "Włącz powiadomienia"
+
+#: .\static\js\app.js:159
 msgid "Subscription is not available."
 msgstr "Włączenie powiadomień nie jest dostępne."
 
-#: .\static\js\app.js:196
+#: .\static\js\app.js:172
 msgid "Successfully unsubscribed from push notifications."
 msgstr "Powiadomienia zostały wyłączone."
 
-#: .\static\js\app.js:207
+#: .\static\js\app.js:185
 msgid "Error while unsubscribing from push notifications."
 msgstr "Błąd podczas wyłączania funkcji otrzymywania powiadomień."
+
+#: .\static\js\app.js:246
+msgid "Install App"
+msgstr "Zainstaluj Aplikację"

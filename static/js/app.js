@@ -69,7 +69,9 @@ window.addEventListener("load", function () {
             if (subscription) {
                 checkSubscription(subscription, function (response) {
                     if (response.status === 200) {
-                        btnText.textContent = "Wyłącz powiadomienia";
+                        btnText.textContent = btnText.textContent = gettext(
+                            "Turn off notifications"
+                        );
                         subBtn.setAttribute("aria-pressed", true);
                         subBtn.disabled = false;
                         isPushEnabled = true;
@@ -118,7 +120,9 @@ function subscribe(reg) {
                     function (response) {
                         // Check the information is saved successfully into server
                         if (response.status === 201) {
-                            btnText.textContent = "Wyłącz powiadomienia";
+                            btnText.textContent = btnText.textContent = gettext(
+                                "Turn off notifications"
+                            );
                             subBtn.setAttribute("aria-pressed", "true");
                             subBtn.disabled = false;
                             isPushEnabled = true;
@@ -149,7 +153,9 @@ function unsubscribe(reg) {
             // to allow the user to subscribe to push
             subBtn.disabled = false;
             subBtn.setAttribute("aria-pressed", false);
-            btnText.textContent = "Włącz powiadomienia";
+            btnText.textContent = btnText.textContent = gettext(
+                "Turn on notifications"
+            );
             showMessage(gettext("Subscription is not available."));
             return;
         }
@@ -169,7 +175,9 @@ function unsubscribe(reg) {
                         isPushEnabled = false;
                         subBtn.disabled = false;
                         subBtn.setAttribute("aria-pressed", false);
-                        btnText.textContent = "Włącz powiadomienia";
+                        btnText.textContent = gettext(
+                            "Turn on notifications"
+                        );
                     })
                     .catch(function (error) {
                         showMessage(
@@ -225,3 +233,98 @@ function postSubscribeObj(statusType, subscription, callback) {
         body: JSON.stringify(data),
     }).then(callback);
 }
+
+let deferredPrompt;
+window.addEventListener("beforeinstallprompt", (e) => {
+    console.log("before")
+    e.preventDefault();
+    deferredPrompt = e;
+    const header = document.querySelector(".header");
+    const installButton = document.createElement("button");
+
+    installButton.textContent = gettext(
+            "Install App"
+        );
+        installButton.classList.add("install-btn", "bluebox");
+
+        installButton.addEventListener("click", async () => {
+            if (deferredPrompt !== null) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === "accepted") {
+                    deferredPrompt = null;
+                }
+            }
+            installButton.style.display = "none";
+        });
+
+        header.appendChild(installButton);
+    });
+
+// let deferredPrompt;
+// self.addEventListener("beforeinstallprompt", (e) => {
+//     deferredPrompt = e;
+// });
+
+// const installApp = document.getElementById("install-btn");
+// installApp.addEventListener("click", async () => {
+//     if (deferredPrompt !== null) {
+//         deferredPrompt.prompt();
+//         const { outcome } = await deferredPrompt.userChoice;
+//         if (outcome === "accepted") {
+//             deferredPrompt = null;
+//         }
+//     }
+// });
+
+
+
+
+// let deferredPrompt;
+// const addBtn = document.querySelector("#install-btn");
+
+// window.addEventListener("beforeinstallprompt", (e) => {
+//     e.preventDefault();
+//     deferredPrompt = e;
+//     addBtn.style.display = "block";
+
+//     addBtn.addEventListener("click", () => {
+//         addBtn.style.display = "none";
+//         // Show the prompt
+//         deferredPrompt.prompt();
+//         // Wait for the user to respond to the prompt
+//         deferredPrompt.userChoice.then((choiceResult) => {
+//             if (choiceResult.outcome === "accepted") {
+//                 console.log("User accepted the A2HS prompt");
+//             } else {
+//                 console.log("User dismissed the A2HS prompt");
+//             }
+//             deferredPrompt = null;
+//         });
+//     });
+// });
+
+// // if are standalone android OR safari
+// if (
+//     window.matchMedia("(display-mode: standalone)").matches ||
+//     window.navigator.standalone === true
+// ) {
+//     // hidden the button
+//     addBtn.style.display = "none";
+// }
+
+// const isPWA = () =>
+//     !!(
+//         window.matchMedia?.("(display-mode: standalone)").matches ||
+//         window.navigator.standalone
+//     );
+// // if are standalone android OR safari
+// if (isPWA()) {
+//     // hidden the button
+//     addBtn.style.display = "none";
+// }
+
+// // do action when finished install
+// window.addEventListener("appinstalled", (e) => {
+//     console.log("success app install!");
+// });

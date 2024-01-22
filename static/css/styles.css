@@ -462,10 +462,29 @@ button.Toggle {
   position: relative;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   min-height: -moz-min-content;
   min-height: min-content;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
   background-color: rgb(240, 240, 245);
+}
+.header .install-btn {
+  margin: 1rem auto;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: 3px solid transparent;
+  border-radius: 50px;
+  box-shadow: 0px 0px 6px black;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.header .install-btn:hover {
+  border: 3px solid lime;
+  transform: translateY(-3px);
+}
+.header .install-btn:focus, .header .install-btn:active {
+  outline: 3px solid rgb(229, 139, 50);
 }
 .header__logo {
   display: flex;
@@ -538,7 +557,7 @@ button.Toggle {
   right: 0;
   background-position: center;
   background-size: cover;
-  background-image: linear-gradient(rgba(25, 64, 91, 0.3), rgba(25, 64, 91, 0.3)), url("/static/img/tur4.jpg");
+  background-image: linear-gradient(rgba(25, 64, 91, 0.3), rgba(25, 64, 91, 0.3)), url("/static/img/tur5.jpg");
 }
 
 .home__boxes {
@@ -567,7 +586,6 @@ button.Toggle {
 @media (min-width: 62em) {
   .home {
     justify-content: space-between;
-    align-items: center;
     height: calc(100vh - 15.5rem);
   }
   .home__boxes {

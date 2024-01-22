@@ -4,11 +4,32 @@
     position: relative;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     // height: 9rem;
     min-height: min-content;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
     background-color: rgb(240, 240, 245);
 
+    .install-btn {
+        margin: 1rem auto;
+        padding: 10px 20px;
+        font-family: inherit;
+        font-size: 1.5rem;
+        border: 3px solid transparent;
+        border-radius: 50px;
+        box-shadow: 0px 0px 6px black;
+        cursor: pointer;
+        transition: all .5s;
+
+        &:hover {
+            border: 3px solid lime;
+            transform: translateY(-3px);
+        }
+        &:focus,
+        &:active {
+            outline: 3px solid $secondary-color;
+        }
+    }
 
     &__logo {
         display: flex;

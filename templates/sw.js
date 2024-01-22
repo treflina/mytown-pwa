@@ -6,14 +6,14 @@ self.addEventListener("push", function (event) {
         head = data.head,
         body = data.body,
         badge = data.badge,
-    url = data.url ? data.url : self.location.origin;
+        url = data.url ? data.url : self.location.origin;
 
     event.waitUntil(
         self.registration.showNotification(head, {
             body: body,
             icon: "static/img/icos/android-chrome-96x96.png",
             badge: "static/img/trash2.png",
-            data: { url: url }
+            data: { url: url },
         })
     );
 });
