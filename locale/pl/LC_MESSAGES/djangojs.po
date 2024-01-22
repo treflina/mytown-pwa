@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-22 13:30+0100\n"
+"POT-Creation-Date: 2024-01-22 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "Powiadomienia zostały włączone."
 msgid "Error while subscribing to push notifications."
 msgstr "Błąd podczas włączania funkcji otrzymywania powiadomień."
 
-#: .\static\js\app.js:157
+#: .\static\js\app.js:157 .\static\js\app.js:179
 msgid "Turn on notifications"
 msgstr "Włącz powiadomienia"
 
