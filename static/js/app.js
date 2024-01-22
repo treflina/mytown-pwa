@@ -239,7 +239,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
     console.log("before")
     e.preventDefault();
     deferredPrompt = e;
-    const header = document.querySelector(".header");
+    const header = document.querySelector(".header__wrapper");
     const installButton = document.createElement("button");
 
     installButton.textContent = gettext(

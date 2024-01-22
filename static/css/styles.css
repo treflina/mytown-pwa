@@ -1,3 +1,31 @@
+@font-face {
+  font-family: "Fjalla_One";
+  src: url("/static/fonts/fjallaone-regular-webfont.woff2") format("woff2"), url("/static/fonts/fjallaone-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/poppins-regular-webfont.woff2") format("woff2"), url("/static/fonts/poppins-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: regular;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/poppins-medium-webfont.woff2") format("woff2"), url("/static/fonts/poppins-medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: medium;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/static/fonts/poppins-semibold-webfont.woff2") format("woff2"), url("/static/fonts/poppins-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: semibold;
+  font-display: swap;
+}
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -125,7 +153,7 @@ main {
 }
 
 .muted {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .main-color-txt {
@@ -462,14 +490,16 @@ button.Toggle {
   position: relative;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   min-height: -moz-min-content;
   min-height: min-content;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
   background-color: rgb(240, 240, 245);
 }
+.header__wrapper {
+  flex-wrap: wrap;
+}
 .header .install-btn {
-  margin: 1rem auto;
+  margin: 0.5rem auto 0.5rem;
   padding: 10px 20px;
   font-family: inherit;
   font-size: 1.5rem;
@@ -489,6 +519,7 @@ button.Toggle {
 .header__logo {
   display: flex;
   align-items: center;
+  margin-right: 1rem;
   color: black;
   text-decoration: none;
 }
@@ -497,12 +528,12 @@ button.Toggle {
   height: 70px;
   flex-shrink: 0;
   margin: 10px;
-  border-radius: 15px;
+  border-radius: 8px;
   box-shadow: 0px 0px 6px black;
 }
 .header__txt {
-  font-family: "Fjalla One", sans-serif;
-  margin: 0 0 0 0.5rem;
+  font-family: "Fjalla_One", sans-serif;
+  margin: 1rem 0 0 0.5rem;
   font-size: 2.6rem;
   font-weight: 600;
 }
@@ -517,8 +548,12 @@ button.Toggle {
     justify-content: flex-start;
     box-shadow: none;
   }
+  .header .install-btn {
+    margin: 1rem;
+  }
   .header__wrapper {
     max-width: 1250px;
+    justify-content: space-between;
   }
   .header__txt {
     font-size: 2.8rem;
