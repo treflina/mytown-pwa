@@ -25,32 +25,32 @@ msgstr ""
 
 #: .\contact\models.py:39
 msgid "Form introduction"
-msgstr ""
+msgstr "Wprowadzenie do formularza"
 
 #: .\contact\models.py:40
 msgid "Thank you text"
-msgstr ""
+msgstr "Tekst podziękowania"
 
 #: .\contact\models.py:45
 msgid "Form fields"
-msgstr ""
+msgstr "Pola formularza"
 
 #: .\garbage\models.py:18 .\garbage\models.py:24
 msgid "Region"
-msgstr ""
+msgstr "Rejon"
 
 #: .\garbage\models.py:19
 msgid "Region's number"
-msgstr ""
+msgstr "Numer rejonu"
 
 #: .\garbage\models.py:25
 msgid "Regions"
-msgstr ""
+msgstr "Rejony"
 
 #: .\garbage\models.py:32
 msgid "Garbage Type"
-msgstr ""
+msgstr "Rodzaj odpadów"
 
 #: .\garbage\models.py:35
 msgid "Number (ordering)"
-msgstr ""
+msgstr "Numer (do sortowania)"
