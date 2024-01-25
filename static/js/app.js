@@ -1,12 +1,9 @@
 import { urlB64ToUint8Array, getCookie } from "./utils.js";
 
-let isPushEnabled = false,
-    registration,
-    subBtn,
-    btnText;
+let registration, btnText, subBtns;
 
 window.addEventListener("load", function () {
-    subBtn = document.getElementById("webpush-subscribe-btn");
+    subBtns = document.querySelectorAll(".sub-btn");
     btnText = document.querySelector(".btn-text");
 
     // Do everything if the Browser Supports Service Worker
@@ -16,7 +13,8 @@ window.addEventListener("load", function () {
             .register(serviceWorker)
             .then(function (reg) {
                 registration = reg;
-                if (subBtn !== null) {
+                // if (subBtn !== null) {
+                if (subBtns.length) {
                     initialiseState(reg);
                 }
             })
@@ -33,7 +31,9 @@ window.addEventListener("load", function () {
     function initialiseState(reg) {
         // Are Notifications supported in the service worker?
         if (!reg.showNotification) {
-            subBtn.setAttribute("aria-pressed", false);
+            subBtns.forEach((subBtn) => {
+                subBtn.setAttribute("aria-pressed", false);
+            });
             showMessage(
                 gettext(
                     "Showing notifications are not supported in your browser."
@@ -46,8 +46,10 @@ window.addEventListener("load", function () {
         // If its denied, it's a permanent block until the
         // user changes the permission
         if (Notification.permission === "denied") {
-            subBtn.disabled = false;
-            subBtn.setAttribute("aria-pressed", false);
+            subBtns.forEach((subBtn) => {
+                subBtn.disabled = false;
+                subBtn.setAttribute("aria-pressed", false);
+            });
             showMessage(
                 gettext("Push notifications are blocked by your browser.")
             );
@@ -56,8 +58,10 @@ window.addEventListener("load", function () {
 
         // Check if push messaging is supported
         if (!("PushManager" in window)) {
-            subBtn.disabled = false;
-            subBtn.setAttribute("aria-pressed", false);
+            subBtns.forEach((subBtn) => {
+                subBtn.disabled = false;
+                subBtn.setAttribute("aria-pressed", false);
+            });
             showMessage(
                 gettext("Push notifications are not available in your browser.")
             );
@@ -67,26 +71,35 @@ window.addEventListener("load", function () {
         // We need to get subscription state for push notifications and send the information to server
         reg.pushManager.getSubscription().then(function (subscription) {
             if (subscription) {
-                checkSubscription(subscription, function (response) {
-                    if (response.status === 200) {
-                        btnText.textContent = btnText.textContent = gettext(
-                            "Turn off notifications"
-                        );
-                        subBtn.setAttribute("aria-pressed", true);
-                        subBtn.disabled = false;
-                        isPushEnabled = true;
-                    }
+                subBtns.forEach((subBtn) => {
+                    subBtn.isPushEnabled = false;
+                    checkSubscription(
+                        subscription,
+                        subBtn,
+                        function (response) {
+                            if (response.status === 200) {
+                                btnText = subBtn.querySelector(".btn-text");
+                                btnText.textContent = btnText.textContent =
+                                    gettext("Turn off notifications");
+                                subBtn.setAttribute("aria-pressed", true);
+                                subBtn.disabled = false;
+                                subBtn.isPushEnabled = true;
+                            }
+                        }
+                    );
                 });
             }
         });
 
-        subBtn?.addEventListener("click", function () {
-            subBtn.disabled = true;
-            if (isPushEnabled) {
-                return unsubscribe(registration);
-            }
-            return subscribe(registration);
-        });
+        subBtns.forEach((subBtn) =>
+            subBtn.addEventListener("click", function () {
+                subBtn.disabled = true;
+                if (subBtn.isPushEnabled) {
+                    return unsubscribe(registration, subBtn);
+                }
+                return subscribe(registration, subBtn);
+            })
+        );
     }
 });
 
@@ -98,7 +111,17 @@ function showMessage(message) {
     }
 }
 
-function subscribe(reg) {
+function btnOff(btn, msg) {
+    btn.disabled = false;
+    btn.setAttribute("aria-pressed", false);
+    btnText = btn.querySelector(".btn-text");
+    btnText.textContent = btnText.textContent = gettext(
+        "Turn on notifications"
+    );
+    showMessage(msg);
+}
+
+function subscribe(reg, subBtn) {
     reg.pushManager.getSubscription().then(function (subscription) {
         var metaObj, applicationServerKey, options;
         metaObj = document.querySelector('meta[name="vapid-key"]');
@@ -117,15 +140,17 @@ function subscribe(reg) {
                 postSubscribeObj(
                     "subscribe",
                     subscription,
+                    subBtn,
                     function (response) {
                         // Check the information is saved successfully into server
                         if (response.status === 201) {
+                            btnText = subBtn.querySelector(".btn-text");
                             btnText.textContent = btnText.textContent = gettext(
                                 "Turn off notifications"
                             );
                             subBtn.setAttribute("aria-pressed", "true");
                             subBtn.disabled = false;
-                            isPushEnabled = true;
+                            subBtn.isPushEnabled = true;
                             showMessage(
                                 gettext(
                                     "Successfully subscribed to push notifications."
@@ -144,55 +169,55 @@ function subscribe(reg) {
     });
 }
 
-function unsubscribe(reg) {
+function unsubscribe(reg, subBtn) {
     // Get the Subscription to unregister
     reg.pushManager.getSubscription().then(function (subscription) {
         // Check we have a subscription to unsubscribe
         if (!subscription) {
             // No subscription object, so set the state
             // to allow the user to subscribe to push
-            subBtn.disabled = false;
-            subBtn.setAttribute("aria-pressed", false);
-            btnText.textContent = btnText.textContent = gettext(
-                "Turn on notifications"
-            );
-            showMessage(gettext("Subscription is not available."));
+            let msg = gettext("Subscription is not available.");
+            btnOff(subBtn, msg);
             return;
         }
-        postSubscribeObj("unsubscribe", subscription, function (response) {
-            // Check if the information is deleted from server
-            if (response.status === 202) {
-                // Get the Subscription
-                // Remove the subscription
-                subscription
-                    .unsubscribe()
-                    .then(function (successful) {
-                        showMessage(
-                            gettext(
+        postSubscribeObj(
+            "unsubscribe",
+            subscription,
+            subBtn,
+            function (response) {
+                // Check if the information is deleted from server
+                if (response.status === 202) {
+                    subscription
+                        .unsubscribe()
+                        .then(function (successful) {
+                            btnOff(subBtn, gettext(
                                 "Successfully unsubscribed from push notifications."
-                            )
-                        );
-                        isPushEnabled = false;
-                        subBtn.disabled = false;
-                        subBtn.setAttribute("aria-pressed", false);
-                        btnText.textContent = gettext(
-                            "Turn on notifications"
-                        );
-                    })
-                    .catch(function (error) {
-                        showMessage(
-                            gettext(
-                                "Error while unsubscribing from push notifications."
-                            )
-                        );
-                        subBtn.disabled = false;
-                    });
+                            ));
+                            subBtn.isPushEnabled = false;
+                        })
+                        .catch(function (error) {
+                            showMessage(
+                                gettext(
+                                    "Error while unsubscribing from push notifications."
+                                )
+                            );
+                            subBtn.disabled = false;
+                        });
+                } else {
+                    btnOff(
+                        subBtn,
+                        gettext(
+                            "Successfully unsubscribed from push notifications."
+                        )
+                    );
+                    subBtn.isPushEnabled = false;
+                }
             }
-        });
+        );
     });
 }
 
-function checkSubscription(subscription, callback) {
+function checkSubscription(subscription, subBtn, callback) {
     const data = {
         subscription: subscription.toJSON(),
         group: subBtn.dataset.group,
@@ -210,7 +235,7 @@ function checkSubscription(subscription, callback) {
     }).then(callback);
 }
 
-function postSubscribeObj(statusType, subscription, callback) {
+function postSubscribeObj(statusType, subscription, subBtn, callback) {
     const browser = navigator.userAgent
             .match(/(firefox|msie|chrome|safari|trident)/gi)[0]
             .toLowerCase(),
@@ -236,95 +261,25 @@ function postSubscribeObj(statusType, subscription, callback) {
 
 let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
-    console.log("before")
     e.preventDefault();
     deferredPrompt = e;
+
     const header = document.querySelector(".header__wrapper");
     const installButton = document.createElement("button");
 
-    installButton.textContent = gettext(
-            "Install App"
-        );
-        installButton.classList.add("install-btn", "bluebox");
+    installButton.textContent = gettext("Install App");
+    installButton.classList.add("install-btn", "bluebox");
 
-        installButton.addEventListener("click", async () => {
-            if (deferredPrompt !== null) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === "accepted") {
-                    deferredPrompt = null;
-                }
+    installButton.addEventListener("click", async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === "accepted") {
+                deferredPrompt = null;
             }
-            installButton.style.display = "none";
-        });
-
-        header.appendChild(installButton);
+        }
+        installButton.style.display = "none";
     });
 
-// let deferredPrompt;
-// self.addEventListener("beforeinstallprompt", (e) => {
-//     deferredPrompt = e;
-// });
-
-// const installApp = document.getElementById("install-btn");
-// installApp.addEventListener("click", async () => {
-//     if (deferredPrompt !== null) {
-//         deferredPrompt.prompt();
-//         const { outcome } = await deferredPrompt.userChoice;
-//         if (outcome === "accepted") {
-//             deferredPrompt = null;
-//         }
-//     }
-// });
-
-
-
-
-// let deferredPrompt;
-// const addBtn = document.querySelector("#install-btn");
-
-// window.addEventListener("beforeinstallprompt", (e) => {
-//     e.preventDefault();
-//     deferredPrompt = e;
-//     addBtn.style.display = "block";
-
-//     addBtn.addEventListener("click", () => {
-//         addBtn.style.display = "none";
-//         // Show the prompt
-//         deferredPrompt.prompt();
-//         // Wait for the user to respond to the prompt
-//         deferredPrompt.userChoice.then((choiceResult) => {
-//             if (choiceResult.outcome === "accepted") {
-//                 console.log("User accepted the A2HS prompt");
-//             } else {
-//                 console.log("User dismissed the A2HS prompt");
-//             }
-//             deferredPrompt = null;
-//         });
-//     });
-// });
-
-// // if are standalone android OR safari
-// if (
-//     window.matchMedia("(display-mode: standalone)").matches ||
-//     window.navigator.standalone === true
-// ) {
-//     // hidden the button
-//     addBtn.style.display = "none";
-// }
-
-// const isPWA = () =>
-//     !!(
-//         window.matchMedia?.("(display-mode: standalone)").matches ||
-//         window.navigator.standalone
-//     );
-// // if are standalone android OR safari
-// if (isPWA()) {
-//     // hidden the button
-//     addBtn.style.display = "none";
-// }
-
-// // do action when finished install
-// window.addEventListener("appinstalled", (e) => {
-//     console.log("success app install!");
-// });
+    header.appendChild(installButton);
+});

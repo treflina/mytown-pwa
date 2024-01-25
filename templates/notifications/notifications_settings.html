@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block extra_head %}
+<meta name="vapid-key" content="{{ vapid_key }}">
+{% endblock %}
+{% block content %}
+<main>
+    <div class="wrapper notifications">
+<h1>Ustawienia powiadomień</h1>
+<div class="webpush-msgbox">
+    <div id="webpush-message" class="webpush-message" hidden></div>
+</div>
+<div class="notifications__buttons">
+<div class="notifications__buttons-garbage">
+    <h2 class="notifications__buttons-heading">Wywóz odpadów</h2>
+{% for region in regions %}
+<div class="notifications__buttons-btnbox">
+<p>{{region.name}}</p>
+<button class="Toggle sub-btn" type="button" aria-pressed="false" id="webpush-subscribe-btn-{{region.id}}"
+    data-group="{{ region.id }}" data-url="{% url 'notifications:save_webpush_info'%}">
+    <span class="btn-text">Włącz powiadomienia</span>
+    <span class="Toggle__display" hidden>
+        <svg class="Toggle__icon Toggle__icon--checkmark"><use href="{% static 'img/svg/sprite.svg' %}#checkmark"></use></svg>
+        <svg class="Toggle__icon Toggle__icon--cross"><use href="{% static 'img/svg/sprite.svg' %}#cross"></use></svg>
+    </span>
+</button>
+</div>
+{% endfor %}
+</div>
+<div class="notifications__buttons-news">
+    <h2 class="notifications__buttons-heading">Aktualności i wydarzenia</h2>
+{% for group in groups %}
+<div class="notifications__buttons-btnbox">
+<p>{{ group.name }}</p>
+<button class="Toggle sub-btn" type="button" aria-pressed="false"
+    data-group="{{ group.slug }}" data-url="{% url 'notifications:save_webpush_info'%}">
+    <span class="btn-text">Włącz powiadomienia</span>
+    <span class="Toggle__display" hidden>
+        <svg class="Toggle__icon Toggle__icon--checkmark"><use href="{% static 'img/svg/sprite.svg' %}#checkmark"></use></svg>
+        <svg class="Toggle__icon Toggle__icon--cross"><use href="{% static 'img/svg/sprite.svg' %}#cross"></use></svg>
+    </span>
+</button>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</main>
+{% endblock %}

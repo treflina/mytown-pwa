@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
+    "wagtail.contrib.table_block",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     "core",
     "contact",
     "garbage",
+    "news",
     "notifications",
 ]
 
@@ -183,6 +185,7 @@ WEBPUSH_SETTINGS = {
 
 WAGTAIL_SITE_NAME = "eTurawa"
 WAGTAILADMIN_BASE_URL = env("BASE_URL")
+WAGTAILDOCS_DOCUMENT_MODEL = "core.CustomDocument"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = env("EMAIL_HOST")

@@ -26,7 +26,7 @@
                 </div>
             </div>
             {% if user.is_authenticated or webpush.group %}
-            <button class="Toggle" type="button" aria-pressed="false" id="webpush-subscribe-btn" {% if webpush.group%}
+            <button class="Toggle sub-btn" type="button" aria-pressed="false" id="webpush-subscribe-btn" {% if webpush.group%}
             data-group="{{ webpush.group }}" {% endif %} data-url="{% url 'notifications:save_webpush_info'%}">
                 <span class="btn-text">Włącz powiadomienia</span>
                 <span class="Toggle__display" hidden>

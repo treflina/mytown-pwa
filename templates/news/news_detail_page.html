@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static wagtailcore_tags %}
+{% block content %}
+<main class="main wrapper news">
+
+<h2 class="news__heading">{{page.title}}</h2>
+<div class="news__maintxt">
+    {{page.main_text | richtext}}
+</div>
+
+ <section id="additional-content">
+    <div class="block">
+        {%for block in page.body %}
+        {% if block.block_type == 'table' %}
+        <div class="block__table">
+            {% include_block block %}
+        </div>
+        {% elif block.block_type == 'docs' %}
+        {% include_block block %}
+        {% else %}
+        <div class="block__text group">
+            {% include_block block %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+</main>
+
+{% endblock %}
