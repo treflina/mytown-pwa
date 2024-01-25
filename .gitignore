@@ -4,6 +4,7 @@ garbage/migrations/*
 core/migrations/*
 contact/migrations/*
 notifications/migrations/*
+news/migrations/*
 media/*
 db.sqlite3
 

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+<main class="main wrapper news">
+
+    <div class="wrapper">
+        {% if tag_filter %}
+        <a class="link-back" href="{{page.get_url}}"><svg class="custom-icon-no-mr" aria-hidden="true"
+            focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+            </use></svg>Wszystkie aktualności i wydarzenia</a>
+        {% else %}
+        <a class="link-back" href="/"><svg class="custom-icon-no-mr" aria-hidden="true"
+            focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+            </use>
+        </svg>Powrót</a>
+        {% endif %}
+    </div>
+    <h2 class="news__heading">{{page.title}}{% if tag_filter %}: {{tag.name}}{%endif%}</h2>
+    <div class="news__cards">
+        {% for post in posts %}
+        <a href="{{post.get_url}}">
+        <div class="news__card">
+            {% if post.banner_image %}
+            {% image post.banner_image fill-380x260 as img %}
+            <img src="{{img.url}}" alt="{{post.alt_attr}}" width="{{img.width}}" height="{{img.height}}"
+            class="news__card-img">
+            <div class="news__card-text {% if post.banner_image %}overlap {% endif %}">
+                <p class="news__card-date">{{post.event_date}}</p>
+           <h3 class="news__card-title">{{post.title}}</h3>
+            </div>
+            {% else %}
+            <div class="news__card-text {% if post.banner_image %}overlap {% endif %}">
+                <p class="news__card-date">{{post.event_date}}</p>
+                <h3 class="news__card-title">{{post.title}}</h3>
+            </div>
+            {% if post.main_text %}
+            <div class="news__card-maintxt"> {{ post.main_text|richtext|truncatewords_html:40 }}</div>
+            {% endif %}
+            {% endif %}
+
+            {% if post.tags.count %}
+            <div class="news__tags">
+                {% for tag in post.tags.all %}
+                <div class="news__tag">
+                    <div class="news__tag-circle"></div>
+                    <a href="{{ post.get_parent.url }}?tag={{ tag.slug }}">{{ tag }}</a>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    </div>
+    </a>
+    {% endfor %}
+    </div>
+</main>
+{% endblock %}

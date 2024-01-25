@@ -1,5 +1,7 @@
 import json
+from django.conf import settings
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
 from django.views.generic import TemplateView
@@ -7,7 +9,25 @@ from django.views.generic import TemplateView
 from webpush.forms import SubscriptionForm, WebPushForm
 from webpush.views import process_subscription_data
 from webpush.models import PushInformation, SubscriptionInfo
+
+from garbage.models import Region
+from notifications.models import NotificationGroup
 from .forms import CustomWebPushForm
+
+
+def subscriptions_list(request):
+    regions = Region.objects.all()
+    groups = NotificationGroup.objects.all()
+    context = {"regions": regions, "groups": groups}
+
+    webpush_settings = getattr(settings, "WEBPUSH_SETTINGS", {})
+    context["vapid_key"] = webpush_settings.get("VAPID_PUBLIC_KEY")
+
+    return render(
+        request,
+        "notifications/notifications_settings.html",
+        context=context,
+    )
 
 
 @require_POST
@@ -44,15 +64,21 @@ def save_info(request):
 
         if request.user.is_authenticated or group_name:
             subscription = subscription_form.get_or_save()
+
             web_push_form.save_or_delete(
                 subscription=subscription,
                 user=request.user,
                 status_type=status_type,
                 group_name=group_name,
             )
+            push_info = PushInformation.objects.filter(
+                subscription_id=subscription.id
+            ).count()
 
             if status_type == "subscribe":
                 return HttpResponse(status=201)
-            elif "unsubscribe":
+            elif push_info > 0 and status_type == "unsubscribe":
+                return HttpResponse(status=242)
+            elif status_type == "unsubscribe":
                 return HttpResponse(status=202)
     return HttpResponse(status=400)

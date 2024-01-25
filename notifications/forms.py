@@ -15,14 +15,13 @@ class CustomWebPushForm(WebPushForm):
             data["group"] = group
 
         data["subscription"] = subscription
-        endpoint = subscription.endpoint
 
         push_info, created = PushInformation.objects.get_or_create(**data)
-
+      
         if status_type == "unsubscribe":
             push_info.delete()
-            subscription_count = PushInformation.objects.filter(
-                subscription__endpoint=endpoint
+            subscription_info = PushInformation.objects.filter(
+                subscription_id=subscription.id
             ).count()
-            if subscription_count <= 1:
+            if subscription_info == 0:
                 subscription.delete()
