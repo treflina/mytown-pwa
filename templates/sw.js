@@ -1,7 +1,7 @@
 self.addEventListener("push", function (event) {
     let payload = event.data
             ? event.data.text()
-            : { head: "No Content", body: "No Content", icon: "" },
+            : { head: "No Content", body: "No Content", icon: "", badge: "" },
         data = JSON.parse(payload),
         head = data.head,
         body = data.body,
@@ -12,7 +12,7 @@ self.addEventListener("push", function (event) {
         self.registration.showNotification(head, {
             body: body,
             icon: "static/img/icos/android-chrome-96x96.png",
-            badge: "static/img/trash2.png",
+            badge: badge,
             data: { url: url },
         })
     );

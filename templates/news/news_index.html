@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static wagtailcore_tags wagtailimages_tags %}
 {% block content %}
-<main class="main wrapper news">
-
-    <div class="wrapper">
+<main class="main wrapper news align-center">
+    <div class="news__links">
         {% if tag_filter %}
         <a class="link-back" href="{{page.get_url}}"><svg class="custom-icon-no-mr" aria-hidden="true"
             focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">

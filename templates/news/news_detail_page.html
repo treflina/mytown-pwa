@@ -1,30 +1,56 @@
 {% extends 'base.html' %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 {% block content %}
-<main class="main wrapper news">
+<main class="main wrapper news detailnews">
+    <div class="news__links">
+        <a class="link-back" href="{% slugurl 'aktualnosci' %}"><svg class="custom-icon-no-mr" aria-hidden="true"
+            focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+            </use>
+        </svg>Powrót</a>
+    </div>
+    <h2 class="news__heading">{{page.title}}</h2>
+    <div class="news__maintxt">
+        {{page.main_text | richtext}}
+    </div>
 
-<h2 class="news__heading">{{page.title}}</h2>
-<div class="news__maintxt">
-    {{page.main_text | richtext}}
-</div>
-
- <section id="additional-content">
-    <div class="block">
-        {%for block in page.body %}
-        {% if block.block_type == 'table' %}
-        <div class="block__table">
+    <section id="additional-content">
+        <div class="block">
+            {%for block in page.body %}
+            {% if block.block_type == 'table' %}
+            <div class="block__table">
+                {% include_block block %}
+            </div>
+            {% elif block.block_type == 'docs' %}
             {% include_block block %}
+            {% else %}
+            <div class="block__text group">
+                {% include_block block %}
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% elif block.block_type == 'docs' %}
-        {% include_block block %}
-        {% else %}
-        <div class="block__text group">
-            {% include_block block %}
+    </section>
+     <section class="news-gallery">
+        {% if page.gallery_images.all|length > 0 %}
+        <div class="gallery">
+            <ul class="gallery__list">
+                {% for i in page.gallery_images.all %}
+                {% image i.image fill-350x230 as thumbimg %}
+                {% image i.image original as img %}
+                <li class="gallery__list-item">
+                    <a data-fslightbox="gallery" href="{{img.file.url}}" data-alt="{{i.alt_attr}}">
+                        <span class="sr-only">Link do powiększonego zdjęcia</span>
+                    <img class="gallery-image" src="{{thumbimg.url}}" alt="Podgląd zdjęcia {{i.image.title}}"
+                    />
+                </a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         {% endif %}
-        {% endfor %}
-    </div>
-</section>
+    </section>
 </main>
-
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'js/fslightbox.js' %}"></script>
 {% endblock %}
