@@ -5,6 +5,12 @@
 {% endblock %}
 {% block content %}
 <main>
+    <div class="wrapper">
+        <a class="link-back" href="/"><svg class="custom-icon-no-mr" aria-hidden="true"
+                focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
+                </use>
+            </svg>Powrót</a>
+    </div>
     <div class="wrapper notifications">
 <h1>Ustawienia powiadomień</h1>
 <div class="webpush-msgbox">

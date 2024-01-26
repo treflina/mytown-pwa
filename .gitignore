@@ -43,5 +43,7 @@ wheels/
 .installed.cfg
 *.egg
 fixtures.py
+
 django.log
 notifications.log
+news_notifications.log

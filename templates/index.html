@@ -9,31 +9,37 @@
             </figcaption>
         </figure>
         <div class="home__boxes mainpage">
-            <a href="#" class="home__boxes-box  homebox-blue homebox linkbox whitebox animated slide-left">
+            <a href="{% slugurl 'aktualnosci' %}" class="home__boxes-box  homebox-blue homebox linkbox whitebox animated slide-left">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                     focusable="false">
                     <use href="{% static 'img/svg/sprite.svg' %}#megaphone">
                     </use></svg>
-                <p class="semi-bold muted">Aktualności i wydarzenia</p>
+                <p class="semi-bold">Aktualności i wydarzenia</p>
             </a>
             <a href="{% url 'garbage:regions' %}" class="home__boxes-box homebox homebox-orange linkbox whitebox animated slide-up">
                     <svg class="home-icon icon-secondary-home" aria-hidden="true" focusable="false">
                         <use href="{% static 'img/svg/sprite.svg' %}#trash">
                         </use></svg><p class="semi-bold">Harmonogram wywozu odpadów</p></a>
+            <a href="#" class="home__boxes-box homebox homebox-blue linkbox whitebox animated slide-down">
+                <svg class="home-icon icon-secondary-home" aria-hidden="true"
+                focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bus"></use>
+                </svg><p class="semi-bold muted">Gminna komunikacja autobusowa</p>
+            </a>
             <a href="#" class="home__boxes-box homebox  homebox-orange linkbox whitebox animated slide-left">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bag"></use>
                 </svg><p class="semi-bold muted">Sklepy i usługi</p>
             </a>
-            <a href="#" class="home__boxes-box homebox-blue homebox linkbox whitebox animated slide-right">
+            {% comment %} <a href="#" class="home__boxes-box homebox-blue homebox linkbox whitebox animated slide-right">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
-                focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#help"></use>
+                focusable="false"><use href="{#% static 'img/svg/sprite.svg' %#}#help"></use>
                 </svg><p class="semi-bold muted">Oddam, pomogę</p>
-            </a>
-            <a href="#" class="home__boxes-box homebox homebox-blue linkbox whitebox animated slide-down">
+            </a> {% endcomment %}
+
+               <a href="{% url 'notifications:subscriptions' %}" class="home__boxes-box homebox homebox-blue linkbox whitebox animated slide-down">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
-                focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bus"></use>
-                </svg><p class="semi-bold muted">Gminna komunikacja autobusowa</p>
+                focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bell"></use>
+                </svg><p class="semi-bold">Ustawienia powiadomień</p>
             </a>
             <a href="{% slugurl 'kontakt' %}" class="home__boxes-box homebox homebox-cta linkbox bluebox animated slide-right">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"

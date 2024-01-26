@@ -10,7 +10,6 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase, Tag
 from wagtail.admin.panels import (
     FieldPanel,
-    FieldRowPanel,
     MultipleChooserPanel,
     MultiFieldPanel,
 )
@@ -76,18 +75,17 @@ class NewsDetailPage(Page):
         "notifications.NotificationGroup", blank=True
     )
 
+    send_notifications = models.BooleanField(
+        verbose_name=_("Send notifications to users"),
+        default=False,
+        help_text=_("If true, notifications will be sent after publishing page."),
+    )
+
     event_date = models.DateField(
         blank=True,
         null=True,
         default=now,
         verbose_name=_("Event date"),
-    )
-
-    publish_end_date = models.DateField(
-        blank=True,
-        null=True,
-        default=(now() + timedelta(days=30)).date(),
-        verbose_name=_("Publishing end date"),
     )
 
     banner_image = models.ForeignKey(
@@ -132,16 +130,9 @@ class NewsDetailPage(Page):
 
     body = StreamField(blocks.BodyBlock(), null=True, blank=True, use_json_field=True)
 
-    promote_panels = Page.promote_panels + []
-
     content_panels = Page.content_panels + [
-        FieldRowPanel(
-            [
-                FieldPanel("event_date"),
-                FieldPanel("publish_end_date"),
-            ],
-            heading=_("Dates"),
-        ),
+
+        FieldPanel("event_date"),
         MultiFieldPanel(
             [
                 FieldPanel("banner_image"),
@@ -169,8 +160,9 @@ class NewsDetailPage(Page):
             [
                 FieldPanel("tags"),
                 FieldPanel("notification_groups", widget=forms.CheckboxSelectMultiple),
+                FieldPanel("send_notifications"),
             ],
-            heading=_("Notifications and tags")
+            heading=_("Notifications and tags"),
         ),
     ]
 
