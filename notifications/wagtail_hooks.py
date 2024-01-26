@@ -30,6 +30,7 @@ def send_notifications(request, page):
                     "head": head,
                     "body": body,
                     "url": f"/aktualnosci/{page.slug}",
+                    "badge": ""
                 }
                 if Group.objects.filter(name=group.slug):
                     send_group_notification(
