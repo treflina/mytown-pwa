@@ -237,7 +237,7 @@ function checkSubscription(subscription, subBtn, callback) {
 
 function postSubscribeObj(statusType, subscription, subBtn, callback) {
     const browser = navigator.userAgent
-            .match(/(firefox|msie|chrome|safari|trident)/gi)[0]
+            .match(/(firefox|msie|chrome|safari|trident|brave)/gi)[0]
             .toLowerCase(),
         user_agent = navigator.userAgent,
         data = {
