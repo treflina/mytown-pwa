@@ -13,7 +13,6 @@ window.addEventListener("load", function () {
             .register(serviceWorker)
             .then(function (reg) {
                 registration = reg;
-                // if (subBtn !== null) {
                 if (subBtns.length) {
                     initialiseState(reg);
                 }
