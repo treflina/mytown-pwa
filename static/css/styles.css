@@ -338,7 +338,6 @@ button.Toggle {
 .link-back {
   display: flex;
   align-items: center;
-  margin-left: -10px;
   color: #4e4ed4;
   font-weight: 600;
   -webkit-text-decoration-color: transparent;
@@ -764,6 +763,8 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
   padding: 10px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 10%;
+  margin-bottom: auto;
   gap: 20px;
   overflow: hidden;
 }
@@ -786,6 +787,8 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
   .home__boxes {
     padding: 3rem 2rem;
     align-content: start;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .home__bgcimg {
     display: none;
@@ -978,9 +981,8 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
   margin-bottom: 0.5rem;
 }
 .news__links {
+  align-self: flex-start;
   margin-top: 1rem;
-  margin-right: auto;
-  margin-left: 1rem;
 }
 .news__cards {
   display: flex;
@@ -1005,7 +1007,7 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
   justify-content: space-between;
   flex: 0 1 38rem;
   margin-top: 1rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
 }
@@ -1103,6 +1105,9 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
 }
 .notifications__buttons p {
   font-weight: 500;
+}
+.notifications__buttons .btn-text {
+  font-size: 1.4rem;
 }
 .notifications__buttons-heading {
   padding: 2rem 1rem;

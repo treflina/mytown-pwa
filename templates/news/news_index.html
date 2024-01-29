@@ -21,7 +21,7 @@
         <div class="news__card">
             {% if post.banner_image %}
             {% image post.banner_image fill-380x260 as img %}
-            <img src="{{img.url}}" alt="{{post.alt_attr}}" width="{{img.width}}" height="{{img.height}}"
+            <img loading="lazy" src="{{img.url}}" alt="{{post.alt_attr}}" width="{{img.width}}" height="{{img.height}}"
             class="news__card-img">
             <div class="news__card-text {% if post.banner_image %}overlap {% endif %}">
                 <p class="news__card-date">{{post.event_date}}</p>

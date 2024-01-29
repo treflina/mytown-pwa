@@ -72,7 +72,7 @@ class NewsDetailPage(Page):
 
     tags = ClusterTaggableManager(through=NewsPageTag, blank=True)
     notification_groups = ParentalManyToManyField(
-        "notifications.NotificationGroup", blank=True
+        "notifications.NotificationGroup", blank=True, verbose_name=_("Notifications group"),
     )
 
     send_notifications = models.BooleanField(
@@ -100,7 +100,6 @@ class NewsDetailPage(Page):
     included_in_content = models.BooleanField(
         verbose_name=_("Included in the article's content"),
         default=False,
-        help_text="""Include the image in the article's detail content.""",
     )
 
     alt_attr = models.CharField(
@@ -128,10 +127,15 @@ class NewsDetailPage(Page):
         ],
     )
 
-    body = StreamField(blocks.BodyBlock(), null=True, blank=True, use_json_field=True)
+    body = StreamField(
+        blocks.BodyBlock(),
+        null=True,
+        blank=True,
+        use_json_field=True,
+        verbose_name=_("Additional content"),
+    )
 
     content_panels = Page.content_panels + [
-
         FieldPanel("event_date"),
         MultiFieldPanel(
             [
