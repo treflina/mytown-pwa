@@ -30,7 +30,7 @@ msgstr "Twoja przeglądarka nie wspiera otrzymywania powiadomień."
 
 #: .\static\js\app.js:54
 msgid "Push notifications are blocked by your browser."
-msgstr "Powiadomienia sę blokowane w ustawieniach Twojej przeglądarki."
+msgstr "Powiadomienia są blokowane w ustawieniach Twojej przeglądarki."
 
 #: .\static\js\app.js:66
 msgid "Push notifications are not available in your browser."
