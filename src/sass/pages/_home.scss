@@ -21,19 +21,21 @@
 .home__boxes {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(140px, auto);
-    width: 60rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, auto));
+    width: 50rem;
     align-content: space-evenly;
+    justify-content: center;
     padding: 10px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10%;
+    margin-top: 9%;
     margin-bottom: auto;
     gap: 20px;
     overflow: hidden;
 
 
     &-box {
+        width: 20rem;
         margin: 0;
         font-size: 1.7rem;
         z-index: 1;
@@ -41,14 +43,17 @@
 
 }
 
-@media(min-width:21.25em) {
+
+@include media(sm) {
     .home__boxes {
-        grid-template-columns: repeat(2, minmax(140px, auto));
+        padding: 1rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
     }
-}
 
 
-@media(min-width:62em) {
+@include media(l) {
     .home {
         justify-content: space-between;
         height: calc(100vh - 15.5rem);
@@ -56,8 +61,8 @@
         &__boxes {
             padding: 3rem 2rem;
             align-content: start;
-              margin-top: 0;
-              margin-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         &__bgcimg {

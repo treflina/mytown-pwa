@@ -757,29 +757,33 @@ div[tabindex="0"][aria-labelledby][role=region].colheaders {
 .home__boxes {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(140px, auto);
-  width: 60rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, auto));
+  width: 50rem;
   align-content: space-evenly;
+  justify-content: center;
   padding: 10px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 10%;
+  margin-top: 9%;
   margin-bottom: auto;
   gap: 20px;
   overflow: hidden;
 }
 .home__boxes-box {
+  width: 20rem;
   margin: 0;
   font-size: 1.7rem;
   z-index: 1;
 }
 
-@media (min-width: 21.25em) {
+@media screen and (min-width: 36em) {
   .home__boxes {
-    grid-template-columns: repeat(2, minmax(140px, auto));
+    padding: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
-@media (min-width: 62em) {
+@media screen and (min-width: 62em) {
   .home {
     justify-content: space-between;
     height: calc(100vh - 15.5rem);

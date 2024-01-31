@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-29 11:07+0100\n"
+"POT-Creation-Date: 2024-01-31 06:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,3 +198,27 @@ msgstr "Grupa powiadomień"
 #: .\notifications\models.py:29
 msgid "Notification groups"
 msgstr "Grupy powiadomień"
+
+#: .\templates\index.html:17
+msgid "News and events"
+msgstr "Aktualności i wydarzenia"
+
+#: .\templates\index.html:22
+msgid "Waste collection schedule"
+msgstr "Harmonogram wywozu odpadów"
+
+#: .\templates\index.html:26
+msgid "Local bus schedule"
+msgstr "Gminna komunikacja autobusowa"
+
+#: .\templates\index.html:31
+msgid "Districts"
+msgstr "Sołectwa"
+
+#: .\templates\index.html:36
+msgid "Notification settings"
+msgstr "Ustawienia powiadomień"
+
+#: .\templates\index.html:41
+msgid "About / Contact"
+msgstr "O projekcie/ Kontakt"

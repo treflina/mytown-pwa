@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static wagtailcore_tags %}
+{% load static i18n wagtailcore_tags %}
 {% block content %}
 <main>
     <div class="home">
@@ -14,42 +14,35 @@
                     focusable="false">
                     <use href="{% static 'img/svg/sprite.svg' %}#megaphone">
                     </use></svg>
-                <p class="semi-bold">Aktualności i wydarzenia</p>
+                <p class="semi-bold">{% translate "News and events" %}</p>
             </a>
             <a href="{% url 'garbage:regions' %}" class="home__boxes-box homebox homebox-orange linkbox whitebox animated slide-up">
                     <svg class="home-icon icon-secondary-home" aria-hidden="true" focusable="false">
                         <use href="{% static 'img/svg/sprite.svg' %}#trash">
-                        </use></svg><p class="semi-bold">Harmonogram wywozu odpadów</p></a>
+                        </use></svg><p class="semi-bold">{% translate "Waste collection schedule" %}</p></a>
             <a href="#" class="home__boxes-box homebox homebox-orange linkbox whitebox animated slide-down">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bus"></use>
-                </svg><p class="semi-bold muted">Gminna komunikacja autobusowa</p>
+                </svg><p class="semi-bold muted">{% translate "Local bus schedule" %}</p>
             </a>
             <a href="#" class="home__boxes-box homebox  homebox-blue linkbox whitebox animated slide-left">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#info"></use>
-                </svg><p class="semi-bold muted">Sołectwa</p>
+                </svg><p class="semi-bold muted">{% translate "Districts" %}</p>
             </a>
-            {% comment %} <a href="#" class="home__boxes-box homebox-blue homebox linkbox whitebox animated slide-right">
-                <svg class="home-icon icon-secondary-home" aria-hidden="true"
-                focusable="false"><use href="{#% static 'img/svg/sprite.svg' %#}#help"></use>
-                </svg><p class="semi-bold muted">Oddam, pomogę</p>
-            </a> {% endcomment %}
-
-               <a href="{% url 'notifications:subscriptions' %}" class="home__boxes-box homebox homebox-blue linkbox whitebox animated slide-down">
+            <a href="{% url 'notifications:subscriptions' %}" class="home__boxes-box homebox homebox-blue linkbox whitebox animated slide-down">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#bell"></use>
-                </svg><p class="semi-bold">Ustawienia powiadomień</p>
+                </svg><p class="semi-bold">{% translate "Notification settings" %}</p>
             </a>
             <a href="{% slugurl 'kontakt' %}" class="home__boxes-box homebox homebox-cta linkbox bluebox animated slide-right">
                 <svg class="home-icon icon-secondary-home" aria-hidden="true"
                 focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#envelope"></use>
-                </svg><p class="semi-bold">O projekcie / Kontakt</p>
+                </svg><p class="semi-bold">{% translate "About / Contact" %}</p>
             </a>
         </div>
         <div class="home__bgcimg"></div>
     </div>
-
 </main>
 {% endblock %}
 {% block extra_js %}
