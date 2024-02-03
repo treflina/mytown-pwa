@@ -213,7 +213,7 @@ msgstr "Gminna komunikacja autobusowa"
 
 #: .\templates\index.html:31
 msgid "Districts"
-msgstr "Sołectwa"
+msgstr "Sołectwo Turawa"
 
 #: .\templates\index.html:36
 msgid "Notification settings"
