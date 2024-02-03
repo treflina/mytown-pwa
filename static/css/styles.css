@@ -9,7 +9,7 @@
   font-family: "Poppins";
   src: url("/static/fonts/poppins-regular-webfont.woff2") format("woff2"), url("/static/fonts/poppins-regular-webfont.woff") format("woff");
   font-weight: 400;
-  font-style: regular;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
@@ -23,7 +23,7 @@
   font-family: "Poppins";
   src: url("/static/fonts/poppins-semibold-webfont.woff2") format("woff2"), url("/static/fonts/poppins-semibold-webfont.woff") format("woff");
   font-weight: 600;
-  font-style: semibold;
+  font-style: bold;
   font-display: swap;
 }
 @keyframes slideInUp {
