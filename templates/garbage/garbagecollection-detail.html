@@ -9,14 +9,14 @@
 <main>
     <div class=" wrapper-wide schedule padding-sm">
         <div class="schedule__header">
-            <a class="link-back" href="{% url 'garbage:regions' %}"><svg class="custom-icon-no-mr" aria-hidden="true"
+            <a class="link-back" href="{% url 'garbage:regions' %}"><svg class="custom-icon-no-mr custom-icon-ml" aria-hidden="true"
             focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
             </use>
         </svg>Lista rejonów</a>
             <h2 class="heading-primary">Najbliższe terminy wywozu odpadów:</h2>
             <div class="">
                 <div href class="schedule__description">
-                    <svg class="custom-icon icon-black-color" aria-hidden="true" focusable="false">
+                    <svg class="custom-icon icon-no-shrink icon-black-color" aria-hidden="true" focusable="false">
                         <use href="{% static 'img/svg/sprite.svg' %}#{{object.number}}">
                         </use>
                     </svg>

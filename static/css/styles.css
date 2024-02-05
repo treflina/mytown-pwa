@@ -16,14 +16,14 @@
   font-family: "Poppins";
   src: url("/static/fonts/poppins-medium-webfont.woff2") format("woff2"), url("/static/fonts/poppins-medium-webfont.woff") format("woff");
   font-weight: 500;
-  font-style: medium;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
   src: url("/static/fonts/poppins-semibold-webfont.woff2") format("woff2"), url("/static/fonts/poppins-semibold-webfont.woff") format("woff");
   font-weight: 600;
-  font-style: bold;
+  font-style: normal;
   font-display: swap;
 }
 @keyframes slideInUp {
@@ -505,6 +505,14 @@ button.Toggle {
   width: 28px;
   height: 28px;
   margin-right: 10px;
+}
+
+.custom-icon-ml {
+  margin-left: -10px;
+}
+
+.icon-no-shrink {
+  flex-shrink: 0;
 }
 
 .home-icon {
