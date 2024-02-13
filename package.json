@@ -2,15 +2,9 @@
     "name": "school",
     "version": "1.0.0",
     "description": "",
-
-    "scripts": {
-        "build": "parcel build templates/index.html",
-        "start": "parcel templates/index.html"
-    },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "browserslist": "last 2 versions, > 0.5% and ie >= 11",
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
@@ -28,8 +22,5 @@
         "gulp-uglify": "^3.0.2",
         "parcel": "^2.11.0",
         "sass": "^1.49.7"
-    },
-    "dependencies": {
-        "core-js": "^3.35.1"
     }
 }
