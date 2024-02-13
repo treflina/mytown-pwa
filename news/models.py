@@ -123,7 +123,6 @@ class NewsDetailPage(Page):
             "ul",
             "hr",
             "link",
-            "document-link",
         ],
     )
 

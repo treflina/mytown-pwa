@@ -50,7 +50,7 @@ custom_table_options = {
 
 class ImageWithAltAttr(blocks.StructBlock):
     img = ImageChooserBlock(blank=True, null=True, label=_("Image"))
-    alt__attr = blocks.CharBlock(
+    alt_attr = blocks.CharBlock(
         label=_("Alternative text"),
         help_text=_("Image description for visually impaired users & search engines."),
     )
@@ -74,7 +74,9 @@ class BodyBlock(blocks.StreamBlock):
         blank=True,
         null=True,
     )
-    image = ImageWithAltAttr()
+    image = ImageWithAltAttr(
+        template="news/image_block.html",
+    )
     table = TableBlock(
         required=False,
         label=_("Table"),

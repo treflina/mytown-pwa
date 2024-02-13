@@ -1,0 +1,5 @@
+{% load wagtailcore_tags  wagtailimages_tags static %}
+
+{% image block.value.img width-700 as img %}
+<img loading="lazy" src="{{img.url}}" alt="{{block.value.alt_attr}}" width="{{img.width}}" height="{{img.height}}"
+class="block__image-img">

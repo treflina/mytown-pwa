@@ -3,7 +3,7 @@
 {% block content %}
 <main class="main wrapper news detailnews">
     <div class="news__links">
-        <a class="link-back" href="{% slugurl 'aktualnosci' %}"><svg class="custom-icon-no-mr" aria-hidden="true"
+        <a class="link-back" href="{% slugurl 'aktualnosci' %}"><svg class="custom-icon-no-mr custom-icon-ml" aria-hidden="true"
             focusable="false"><use href="{% static 'img/svg/sprite.svg' %}#arrow-left">
             </use>
         </svg>Powrót</a>
@@ -21,7 +21,11 @@
                 {% include_block block %}
             </div>
             {% elif block.block_type == 'docs' %}
-            {% include_block block %}
+                {% include_block block %}
+            {% elif block.block_type == 'image' %}
+            <div class="block__image">
+                {% include_block block %}
+            </div>
             {% else %}
             <div class="block__text group">
                 {% include_block block %}

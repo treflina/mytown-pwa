@@ -207,6 +207,29 @@ main {
   align-self: flex-start;
 }
 
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.block__docs {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.block__image {
+  align-self: center;
+  margin: 1rem 0;
+}
+.block__image-img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .webpush-msgbox {
   height: 1.4rem;
   margin-left: auto;

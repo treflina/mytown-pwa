@@ -47,3 +47,5 @@ fixtures.py
 django.log
 notifications.log
 news_notifications.log
+
+.parcel-cache
