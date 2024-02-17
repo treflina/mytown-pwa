@@ -45,7 +45,7 @@ class RegionDetailView(DetailView):
                 Q(region=self.object)
                 & Q(garbage_type=garbage_type)
                 & Q(date__gte=timezone.now())
-            )[:2]
+            ).order_by("date")[:2]
         context["nearest_collection_types"] = nearest_collection_objects
 
         # notifications
