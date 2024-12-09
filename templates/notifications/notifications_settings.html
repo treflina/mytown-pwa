@@ -11,7 +11,7 @@
             </use>
         </svg>Powrót</a>
     </div>
-    <div class="wrapper notifications">
+    <form class="wrapper notifications">{% csrf_token %}
         <h1>Ustawienia powiadomień</h1>
         <div class="webpush-msgbox">
             <div id="webpush-message" class="webpush-message" hidden></div>
@@ -22,7 +22,7 @@
                 {% for region in regions %}
                 <div class="notifications__buttons-btnbox">
                     <p>{{region.name}}</p>
-                    <button class="Toggle sub-btn" type="button" aria-pressed="false" id="webpush-subscribe-btn-{{region.id}}"
+                    <button class="Toggle sub-btn" type="submit" aria-pressed="false" id="webpush-subscribe-btn-{{region.id}}"
                         data-group="{{ region.id }}" data-url="{% url 'notifications:save_webpush_info'%}">
                         <span class="btn-text">Włącz powiadomienia</span>
                         <span class="Toggle__display" hidden>
@@ -50,6 +50,6 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+    </form>
 </main>
 {% endblock %}

@@ -6,7 +6,7 @@ from django.core.wsgi import get_wsgi_application
 
 sys.path.append(os.getcwd())
 
-os.environ["DJANGO_SETTINGS_MODULE"] = "mytown.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "mytown.settings.production"
 
 
 def application(environ, start_response):
