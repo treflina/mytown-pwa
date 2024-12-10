@@ -2,9 +2,8 @@ import json
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST, require_GET
-from django.views.generic import TemplateView
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.http import require_POST
 
 from webpush.forms import SubscriptionForm, WebPushForm
 from webpush.views import process_subscription_data
@@ -15,6 +14,7 @@ from notifications.models import NotificationGroup
 from .forms import CustomWebPushForm
 
 
+@ensure_csrf_cookie
 def subscriptions_list(request):
     regions = Region.objects.all()
     groups = NotificationGroup.objects.all()
