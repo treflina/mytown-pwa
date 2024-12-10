@@ -57,4 +57,3 @@ class Command(BaseCommand):
                             fail_silently=False,
                         )
                         logging.error(f"Błąd przy próbie wysłania powiadomień: {e}")
-
